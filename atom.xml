@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>zsdvvb/朱笛</title>
-  
+  <title>朱笛</title>
+  <subtitle>游戏既是艺术</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
@@ -9,7 +9,7 @@
   <id>http://yoursite.com/</id>
   
   <author>
-    <name>Zhu Di</name>
+    <name>朱笛</name>
     
   </author>
   
