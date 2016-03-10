@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-03-10T17:19:28.969Z</updated>
+  <updated>2016-03-10T17:21:34.827Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>终于用HexoO+Github搭建好了个人博客，记录一下</title>
+    <title>终于用Hexo+Github搭建好了个人博客，记录一下</title>
     <link href="http://yoursite.com/2016/03/10/HEXO-Github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
     <id>http://yoursite.com/2016/03/10/HEXO-Github搭建个人博客/</id>
     <published>2016-03-10T14:12:28.000Z</published>
-    <updated>2016-03-10T17:19:28.969Z</updated>
+    <updated>2016-03-10T17:21:34.827Z</updated>
     
     <content type="html">&lt;p&gt;折腾了两天，终于算是吧这个博客建起来了，记录以下这次折腾的过程吧。&lt;/p&gt;
 &lt;h1 id=&quot;起因&quot;&gt;&lt;a href=&quot;#起因&quot; class=&quot;headerlink&quot; title=&quot;起因&quot;&gt;&lt;/a&gt;起因&lt;/h1&gt;&lt;p&gt;之所以会想要建设一个个人博客，是因为在最近的学习与生活中产生了许多感悟与体会，希望能找个简单清静的地方记录一下，一是总结与巩固，二是对自己起到一个督促的作用。但是现在网络上各家的博客，要么布满了广告，要么UI不合我胃口，思来想去，还是自己搭建一个blog最能满足我的需求，于是这就开始动手。我本来是想所有过程全部自己完成，但是到了实践的时候发现了许多问题。首先我的前端水平还处于初学者阶段，暂时无法做出令自己满意的页面，而写blog的事情我却不想再耽误下去；然后就是我在写的时候发现如果全部自己完成的话，意味着我每次需要发布文章的时候，就需要为文章单独写个界面，我觉得的即使是我可以写一个通用界面出来，但是每次发布仍然有许多代码要写，这意味着可能到我开始写博客的时候已经过了很长一段时间，这样一定会打击到我写blog的积极性，所以我开始寻求新的一种解决方案。很快我注意到了jekyll，但是尝试之后发现，天朝的程序员真是苦逼，jekyll即使在挂VPN的情况下仍然会安装失败，遂放弃。继续寻找，终于发现了这次的主角——&lt;strong&gt;Hexo&lt;/strong&gt;！下面就详细的记录一下搭建的过程。&lt;/p&gt;
