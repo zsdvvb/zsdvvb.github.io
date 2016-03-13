@@ -218,6 +218,117 @@
             
               
                 
+                <a class="post-title-link" href="/2016/03/13/Unity中有限状态机的学习/" itemprop="url">
+                  Unity下有限状态机的学习
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-13T12:41:05+08:00" content="2016-03-13">
+              2016-03-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术·游戏开发/" itemprop="url" rel="index">
+                    <span itemprop="name">技术·游戏开发</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近需要做一个回合制游戏的demo，开始的时候没什么思路，看了网上一些博客，很多提到需要用到有限状态机。这两天专门看了一下在Unity中有限状态机的写法，主要参考wiki上的FSM写法，附上<a href="http://wiki.unity3d.com/index.php/Finite_State_Machine" target="_blank" rel="external">链接</a>。下面的记录为我自己的思考，作为初学者，难免会有理解的地方，欢迎大家指正。</p>
+<h1 id="什么是FSM"><a href="#什么是FSM" class="headerlink" title="什么是FSM?"></a>什么是FSM?</h1><p>所谓FSM即为有限状态机（Finite State Machine）的缩写，在我看来它是一种实现AI的算法设计思想，用来存储系统中的状态，并根据条件实现状态之间的跳转。具体到到某个例子来说，比如在面向对象的思想中，我们建立了一个人的对象，人有喜怒哀惧，我们想要这个对象可以根据输入表现出不同的情绪，这时候就可以建立有限状态机，为它添加四种状态，喜怒哀惧，并为每个状态添加可能会遇到状态转换条件和与之相对应的状态，并不断检测，当出现满足转换条件的输入时，就转换到对应的状态，从而实现对象情绪的转变。</p>
+<h1 id="为什么要使用FSM？"><a href="#为什么要使用FSM？" class="headerlink" title="为什么要使用FSM？"></a>为什么要使用FSM？</h1><p>由于本人目前刚刚开始学习Unity游戏开发，所以对于游戏开发的过程中使用有限状态机的优势并无十分深刻的理解。在我想来，如果游戏开发的过程中，一个对象的状态十分繁多，那么实现对象状态切换的逻辑代码将会变得十分复杂，而有限状态机这可以十分清晰的表现出这种逻辑关系，各个状态完全分离，由transition进行切换，方便我们的管理。</p>
+<h1 id="FSM的写法"><a href="#FSM的写法" class="headerlink" title="FSM的写法"></a>FSM的写法</h1><p>根据有限状态机的用法，我们可以想象到，首先我们需要为每个状态定义一个类，这个类用来管理不同状态下的方法，如添加删除某个状态下的transition和对应的state(我们可以为每个状态定义一个stateID)的方法；通过transition返回对应stateID的方法；判断是否需要转换状态的方法；描述不同状态下对象行为的方法。这些方法每个状态都会需要，但是及具体实现又都不相同，所以我们可以抽象出来一个abstract类FSMState，让他派生出来各具体的状态类。有了各个状态的类，下面自然就需要一个类对状态进行管理，这便是FSMSystem类的作用，这个类需要包含一个state list,以及用来添加state的AddState方法，用来删除state的DeleteState方法，以及用来转换状态的PerformTransition方法。这两个类写好后，我们只需要在使用时在具体的对象的脚本中写出具体的状态类，就可以实现FSM。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/03/10/HEXO-Github搭建个人博客/" itemprop="url">
                   终于用Hexo+Github搭建好了个人博客，记录一下
                 </a>
@@ -246,8 +357,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
+                  <a href="/categories/技术·前端/" itemprop="url" rel="index">
+                    <span itemprop="name">技术·前端</span>
                   </a>
                 </span>
 
@@ -488,7 +599,7 @@ $hexo d //部署
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -496,7 +607,7 @@ $hexo d //部署
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -505,7 +616,7 @@ $hexo d //部署
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

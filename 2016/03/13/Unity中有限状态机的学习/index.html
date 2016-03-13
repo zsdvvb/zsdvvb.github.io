@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Unity,有限状态机," />
 
 
 
@@ -59,19 +59,19 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="description" content="最近需要做一个回合制游戏的demo，开始的时候没什么思路，看了网上一些博客，很多提到需要用到有限状态机。这两天专门看了一下在Unity中有限状态机的写法，主要参考wiki上的FSM写法，附上链接。下面的记录为我自己的思考，作为初学者，难免会有理解的地方，欢迎大家指正。
+什么是FSM?所谓FSM即为有限状态机（Finite State Machine）的缩写，在我看来它是一种实现AI的算法设计思想，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2016/03/09/hello-world/index.html">
+<meta property="og:title" content="Unity下有限状态机的学习">
+<meta property="og:url" content="http://yoursite.com/2016/03/13/Unity中有限状态机的学习/index.html">
 <meta property="og:site_name" content="朱笛">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-03-09T13:40:43.243Z">
+<meta property="og:description" content="最近需要做一个回合制游戏的demo，开始的时候没什么思路，看了网上一些博客，很多提到需要用到有限状态机。这两天专门看了一下在Unity中有限状态机的写法，主要参考wiki上的FSM写法，附上链接。下面的记录为我自己的思考，作为初学者，难免会有理解的地方，欢迎大家指正。
+什么是FSM?所谓FSM即为有限状态机（Finite State Machine）的缩写，在我看来它是一种实现AI的算法设计思想，">
+<meta property="og:updated_time" content="2016-03-13T06:12:27.926Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="Unity下有限状态机的学习">
+<meta name="twitter:description" content="最近需要做一个回合制游戏的demo，开始的时候没什么思路，看了网上一些博客，很多提到需要用到有限状态机。这两天专门看了一下在Unity中有限状态机的写法，主要参考wiki上的FSM写法，附上链接。下面的记录为我自己的思考，作为初学者，难免会有理解的地方，欢迎大家指正。
+什么是FSM?所谓FSM即为有限状态机（Finite State Machine）的缩写，在我看来它是一种实现AI的算法设计思想，">
 
 
 
@@ -89,7 +89,7 @@ Quick">
   };
 </script>
 
-  <title> Hello World | 朱笛 </title>
+  <title> Unity下有限状态机的学习 | 朱笛 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -219,7 +219,7 @@ Quick">
             
             
               
-                Hello World
+                Unity下有限状态机的学习
               
             
           </h1>
@@ -231,11 +231,30 @@ Quick">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-09T21:40:43+08:00" content="2016-03-09">
-              2016-03-09
+            <time itemprop="dateCreated" datetime="2016-03-13T12:41:05+08:00" content="2016-03-13">
+              2016-03-13
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术·游戏开发/" itemprop="url" rel="index">
+                    <span itemprop="name">技术·游戏开发</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
@@ -258,15 +277,10 @@ Quick">
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>最近需要做一个回合制游戏的demo，开始的时候没什么思路，看了网上一些博客，很多提到需要用到有限状态机。这两天专门看了一下在Unity中有限状态机的写法，主要参考wiki上的FSM写法，附上<a href="http://wiki.unity3d.com/index.php/Finite_State_Machine" target="_blank" rel="external">链接</a>。下面的记录为我自己的思考，作为初学者，难免会有理解的地方，欢迎大家指正。</p>
+<h1 id="什么是FSM"><a href="#什么是FSM" class="headerlink" title="什么是FSM?"></a>什么是FSM?</h1><p>所谓FSM即为有限状态机（Finite State Machine）的缩写，在我看来它是一种实现AI的算法设计思想，用来存储系统中的状态，并根据条件实现状态之间的跳转。具体到到某个例子来说，比如在面向对象的思想中，我们建立了一个人的对象，人有喜怒哀惧，我们想要这个对象可以根据输入表现出不同的情绪，这时候就可以建立有限状态机，为它添加四种状态，喜怒哀惧，并为每个状态添加可能会遇到状态转换条件和与之相对应的状态，并不断检测，当出现满足转换条件的输入时，就转换到对应的状态，从而实现对象情绪的转变。</p>
+<h1 id="为什么要使用FSM？"><a href="#为什么要使用FSM？" class="headerlink" title="为什么要使用FSM？"></a>为什么要使用FSM？</h1><p>由于本人目前刚刚开始学习Unity游戏开发，所以对于游戏开发的过程中使用有限状态机的优势并无十分深刻的理解。在我想来，如果游戏开发的过程中，一个对象的状态十分繁多，那么实现对象状态切换的逻辑代码将会变得十分复杂，而有限状态机这可以十分清晰的表现出这种逻辑关系，各个状态完全分离，由transition进行切换，方便我们的管理。</p>
+<h1 id="FSM的写法"><a href="#FSM的写法" class="headerlink" title="FSM的写法"></a>FSM的写法</h1><p>根据有限状态机的用法，我们可以想象到，首先我们需要为每个状态定义一个类，这个类用来管理不同状态下的方法，如添加删除某个状态下的transition和对应的state(我们可以为每个状态定义一个stateID)的方法；通过transition返回对应stateID的方法；判断是否需要转换状态的方法；描述不同状态下对象行为的方法。这些方法每个状态都会需要，但是及具体实现又都不相同，所以我们可以抽象出来一个abstract类FSMState，让他派生出来各具体的状态类。有了各个状态的类，下面自然就需要一个类对状态进行管理，这便是FSMSystem类的作用，这个类需要包含一个state list,以及用来添加state的AddState方法，用来删除state的DeleteState方法，以及用来转换状态的PerformTransition方法。这两个类写好后，我们只需要在使用时在具体的对象的脚本中写出具体的状态类，就可以实现FSM。</p>
 
       
     </div>
@@ -279,18 +293,26 @@ Quick">
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Unity/" rel="tag">#Unity</a>
+          
+            <a href="/tags/有限状态机/" rel="tag">#有限状态机</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/03/10/HEXO-Github搭建个人博客/" rel="next" title="终于用Hexo+Github搭建好了个人博客，记录一下">
+                <i class="fa fa-chevron-left"></i> 终于用Hexo+Github搭建好了个人博客，记录一下
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/03/10/HEXO-Github搭建个人博客/" rel="prev" title="终于用Hexo+Github搭建好了个人博客，记录一下">
-                终于用Hexo+Github搭建好了个人博客，记录一下 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -441,7 +463,7 @@ Quick">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是FSM"><span class="nav-number">1.</span> <span class="nav-text">什么是FSM?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么要使用FSM？"><span class="nav-number">2.</span> <span class="nav-text">为什么要使用FSM？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FSM的写法"><span class="nav-number">3.</span> <span class="nav-text">FSM的写法</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
