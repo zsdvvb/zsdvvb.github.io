@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-03-13T06:12:27.926Z</updated>
+  <updated>2016-03-15T16:10:20.781Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Unity中鼠标点击识别物体的功能</title>
+    <link href="http://yoursite.com/2016/03/15/Unity%E4%B8%AD%E9%BC%A0%E6%A0%87%E7%82%B9%E5%87%BB%E8%AF%86%E5%88%AB%E7%89%A9%E4%BD%93%E7%9A%84%E5%8A%9F%E8%83%BD/"/>
+    <id>http://yoursite.com/2016/03/15/Unity中鼠标点击识别物体的功能/</id>
+    <published>2016-03-15T15:56:39.000Z</published>
+    <updated>2016-03-15T16:10:20.781Z</updated>
+    
+    <content type="html">&lt;p&gt;今天在学习利用Unity开发小游戏做练习的过程中，需要获取到被鼠标点击到的物体，不知道应该如何实现，所以在网上搜索了一下，看到了下面这个方法，做了个小demo练习了一下，还挺好用的，所以记录一下：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;if (Input.GetButtonDown (&amp;quot;Fire1&amp;quot;)) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	RaycastHit hitinfo;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	if(Physics.Raycast(ray, out hitinfo))&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		GameObject gameObj = hitinfo.transform.gameObject;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		Debug.Log(gameObj.tag);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		if(gameObj.tag == &amp;quot;Cube&amp;quot;)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			text .text = &amp;quot;你点击了立方体&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		if(gameObj.tag == &amp;quot;Sphere&amp;quot;)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			GameObject.Find(&amp;quot;Canvas/ClickMessage&amp;quot;).GetComponent&amp;lt;Text&amp;gt;().text = &amp;quot;你点击了球体&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		if(gameObj.tag == &amp;quot;Untagged&amp;quot;)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			GameObject.Find(&amp;quot;Canvas/ClickMessage&amp;quot;).GetComponent&amp;lt;Text&amp;gt;().text = &amp;quot;你什么都没点到&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这个方法原理其实也很简单，就是从屏幕发出一条射线到鼠标点击的位置，并选中被射线击中的物体。&lt;br&gt;关于这个方法里的transform.gameObject，今天好困，明天再详细研究。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今天在学习利用Unity开发小游戏做练习的过程中，需要获取到被鼠标点击到的物体，不知道应该如何实现，所以在网上搜索了一下，看到了下面这个方法，做了个小demo练习了一下，还挺好用的，所以记录一下：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;t
+    
+    </summary>
+    
+      <category term="技术·游戏开发" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF%C2%B7%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Unity" scheme="http://yoursite.com/tags/Unity/"/>
+    
+      <category term="tip" scheme="http://yoursite.com/tags/tip/"/>
+    
+  </entry>
   
   <entry>
     <title>Unity下有限状态机的学习</title>
