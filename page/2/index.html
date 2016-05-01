@@ -46,8 +46,6 @@
 
 
 
-  
-
 
   <link rel="alternate" href="/atom.xml" title="朱笛" type="application/atom+xml" />
 
@@ -63,13 +61,12 @@
 
 <meta name="description" content="记录生活/游戏/学习">
 <meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta property="og:title" content="朱笛">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="朱笛">
 <meta property="og:description" content="记录生活/游戏/学习">
-<meta property="og:updated_time" content="2016-03-10T17:29:27.160Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
+<meta name="twitter:title" content="朱笛">
 <meta name="twitter:description" content="记录生活/游戏/学习">
 
 
@@ -88,13 +85,7 @@
   };
 </script>
 
-  <title>
-  
-
-  
-    分类 | 朱笛
-  
-</title>
+  <title> 朱笛 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -115,7 +106,9 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left 
+   page-home 
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -202,20 +195,217 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
+  <section id="posts" class="posts-expand">
+    
+      
 
-  <div id="posts" class="posts-expand">
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
     
-    
-      <div class="category-all-page">
-        <div class="category-all-title">
-            目前共计 4 个分类
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/03/10/HEXO-Github搭建个人博客/" itemprop="url">
+                  终于用Hexo+Github搭建好了个人博客，记录一下
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-10T22:12:28+08:00" content="2016-03-10">
+              2016-03-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术·前端/" itemprop="url" rel="index">
+                    <span itemprop="name">技术·前端</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
         </div>
-        <div class="category-all">
-          <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术·C/">技术·C++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术·前端/">技术·前端</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术·游戏开发/">技术·游戏开发</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/游戏/">游戏</a><span class="category-list-count">1</span></li></ul>
-        </div>
-      </div>
+      </header>
     
-  </div>
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>折腾了两天，终于算是吧这个博客建起来了，记录以下这次搭建的过程吧。</p>
+<h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>之所以会想要建设一个个人博客，是因为在最近的学习与生活中产生了许多感悟与体会，希望能找个简单清静的地方记录一下，一是总结与巩固，二是对自己起到一个督促的作用。但是现在网络上各家的博客，要么布满了广告，要么UI不合我胃口，思来想去，还是自己搭建一个blog最能满足我的需求，于是这就开始动手。我本来是想所有过程全部自己完成，但是到了实践的时候发现了许多问题。首先我的前端水平还处于初学者阶段，暂时无法做出令自己满意的页面，而写blog的事情我却不想再耽误下去；然后就是我在写的时候发现如果全部自己完成的话，意味着我每次需要发布文章的时候，就需要为文章单独写个界面，我觉得的即使是我可以写一个通用界面出来，但是每次发布仍然有许多代码要写，这意味着可能到我开始写博客的时候已经过了很长一段时间，这样一定会打击到我写blog的积极性，所以我开始寻求新的一种解决方案。很快我注意到了jekyll，但是尝试之后发现，天朝的程序员真是苦逼，jekyll即使在挂VPN的情况下仍然会安装失败，遂放弃。继续寻找，终于发现了这次的主角——<strong>Hexo</strong>！下面就详细的记录一下搭建的过程。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/03/10/HEXO-Github搭建个人博客/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/03/09/hello-world/" itemprop="url">
+                  Hello World
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-09T21:40:43+08:00" content="2016-03-09">
+              2016-03-09
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/03/09/hello-world/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
 
 
           </div>
@@ -223,10 +413,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
-
 
         </div>
         
