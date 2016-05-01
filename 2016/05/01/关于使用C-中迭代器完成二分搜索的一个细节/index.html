@@ -41,10 +41,12 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="游戏,黑暗之魂1," />
+  <meta name="keywords" content="C++,vector,C++ Primer," />
 
 
 
+
+  
 
 
   <link rel="alternate" href="/atom.xml" title="朱笛" type="application/atom+xml" />
@@ -59,18 +61,22 @@
 
 
 
-<meta name="description" content="我被诅咒了。我的身上出现了黑暗之环，成为了不详的象征，变成了一个不死之人，每一刻我都处于死亡之中，却永远都不会真正的死去，直到我心中的希望之火熄灭，我见过那些熄灭心中之火的人，他们失去了意识，变成了行尸走肉,靠着本能去攻击那些拥有人性的灵魂。我还没有失去希望，我想要知道这诅咒的来源，破除它，让自己变成一个正常人。可是我还没能做什么，就和其他不死人一样被当政者抓了起来，关到了遥远的北方修道院之中，修">
+<meta name="description" content="C++ Primer上的一道练习题（中文第五版，p101，练习3.26）如下：在100页的二分搜索程序中，为什么用的是1mid = beg + (end - beg) / 2
+而非1mid = ( beg + end ) / 2
+关于二分搜索算法，主要代码如下：12345678910auto beg = text.begin(), end = text.end();auto mid = text.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="传火者<一>">
-<meta property="og:url" content="http://yoursite.com/2016/04/08/传火者-一/index.html">
+<meta property="og:title" content="关于使用C++中迭代器完成二分搜索的一个细节">
+<meta property="og:url" content="http://yoursite.com/2016/05/01/关于使用C-中迭代器完成二分搜索的一个细节/index.html">
 <meta property="og:site_name" content="朱笛">
-<meta property="og:description" content="我被诅咒了。我的身上出现了黑暗之环，成为了不详的象征，变成了一个不死之人，每一刻我都处于死亡之中，却永远都不会真正的死去，直到我心中的希望之火熄灭，我见过那些熄灭心中之火的人，他们失去了意识，变成了行尸走肉,靠着本能去攻击那些拥有人性的灵魂。我还没有失去希望，我想要知道这诅咒的来源，破除它，让自己变成一个正常人。可是我还没能做什么，就和其他不死人一样被当政者抓了起来，关到了遥远的北方修道院之中，修">
-<meta property="og:image" content="https://ooo.0o0.ooo/2016/04/08/5707dfaaeaeaf.jpg">
-<meta property="og:updated_time" content="2016-04-08T16:47:31.026Z">
+<meta property="og:description" content="C++ Primer上的一道练习题（中文第五版，p101，练习3.26）如下：在100页的二分搜索程序中，为什么用的是1mid = beg + (end - beg) / 2
+而非1mid = ( beg + end ) / 2
+关于二分搜索算法，主要代码如下：12345678910auto beg = text.begin(), end = text.end();auto mid = text.">
+<meta property="og:updated_time" content="2016-05-01T08:51:28.721Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="传火者<一>">
-<meta name="twitter:description" content="我被诅咒了。我的身上出现了黑暗之环，成为了不详的象征，变成了一个不死之人，每一刻我都处于死亡之中，却永远都不会真正的死去，直到我心中的希望之火熄灭，我见过那些熄灭心中之火的人，他们失去了意识，变成了行尸走肉,靠着本能去攻击那些拥有人性的灵魂。我还没有失去希望，我想要知道这诅咒的来源，破除它，让自己变成一个正常人。可是我还没能做什么，就和其他不死人一样被当政者抓了起来，关到了遥远的北方修道院之中，修">
-<meta name="twitter:image" content="https://ooo.0o0.ooo/2016/04/08/5707dfaaeaeaf.jpg">
+<meta name="twitter:title" content="关于使用C++中迭代器完成二分搜索的一个细节">
+<meta name="twitter:description" content="C++ Primer上的一道练习题（中文第五版，p101，练习3.26）如下：在100页的二分搜索程序中，为什么用的是1mid = beg + (end - beg) / 2
+而非1mid = ( beg + end ) / 2
+关于二分搜索算法，主要代码如下：12345678910auto beg = text.begin(), end = text.end();auto mid = text.">
 
 
 
@@ -88,7 +94,7 @@
   };
 </script>
 
-  <title> 传火者<一> | 朱笛 </title>
+  <title> 关于使用C++中迭代器完成二分搜索的一个细节 | 朱笛 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -218,7 +224,7 @@
             
             
               
-                传火者<一>
+                关于使用C++中迭代器完成二分搜索的一个细节
               
             
           </h1>
@@ -230,8 +236,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-08T21:35:00+08:00" content="2016-04-08">
-              2016-04-08
+            <time itemprop="dateCreated" datetime="2016-05-01T16:24:20+08:00" content="2016-05-01">
+              2016-05-01
             </time>
           </span>
 
@@ -244,8 +250,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/游戏/" itemprop="url" rel="index">
-                    <span itemprop="name">游戏</span>
+                  <a href="/categories/技术·C/" itemprop="url" rel="index">
+                    <span itemprop="name">技术·C++</span>
                   </a>
                 </span>
 
@@ -276,7 +282,10 @@
       
 
       
-        <p><img src="https://ooo.0o0.ooo/2016/04/08/5707dfaaeaeaf.jpg" alt="201305031036246124.jpg"><br>我被诅咒了。<br>我的身上出现了黑暗之环，成为了不详的象征，变成了一个不死之人，每一刻我都处于死亡之中，却永远都不会真正的死去，直到我心中的希望之火熄灭，我见过那些熄灭心中之火的人，他们失去了意识，变成了行尸走肉,靠着本能去攻击那些拥有人性的灵魂。我还没有失去希望，我想要知道这诅咒的来源，破除它，让自己变成一个正常人。<br>可是我还没能做什么，就和其他不死人一样被当政者抓了起来，关到了遥远的北方修道院之中，修道院四面都是悬崖，没有路可以离开，看来他们就打算永远这么关着我们，直到时间的尽头。<br>在修道院的我忘记了时间的流逝，直到那一天，一个骑士砸破了屋顶，把我救了出来，可是他也被看守的恶魔击伤，临死前他告诉我，他的名字是奥斯卡，在他的家乡有一个传说，所有的不死人都有一个共同的使命那就是到达王者之地，敲响两个警醒之钟，以此寻求破解诅咒的契机。不忍心看他变成没有信念的行尸，我离去了。那个恶魔被我用剑杀死，我逃出了修道院，被一只巨鸟带到了一座祭祀场之中。<br>在那里我见到了一个人，他没告诉我名字，却一直对我冷嘲热讽，但我还是从他那打听到了很多有用的东西。他告诉了我一个传说，在远古时代，世界还未分化，笼罩在大雾之中，四处都是灰色的岩石，高耸的大树和不朽的古龙。但是有一天，第一团火从地底燃起，所有的差异因此而生，冷与热，生命与死亡，光明与黑暗。然后，有几只从黑暗中诞生的物种，受到火焰的引诱，在火的周围找到了王的灵魂。最初的死者，尼特、伊札里斯的魔女和混沌的女儿、阳光之王葛温及他麾下的骑士、以及没有人见过的矮人。他们获得了王的力量，并挑战古龙。葛温的雷贯穿了古龙岩石般的龙鳞，魔女的火焰形成了风暴，尼特释放了死亡的瘴气，而没有龙鳞的白龙希斯背叛了古龙，导致古龙败退。从此以太阳王葛温为代表的神将世界拉入了新的纪元——火之纪元，将初始之火传遍世界，建立了辉煌的文明。但是火终有熄灭的时候，到时世界将回归黑暗。现在，火之将息，黑暗之环才会出现于世间，被诅咒之人则有一个共同的使命，敲响警醒之钟，他们一个位于山峰之上，不死村教堂之巅，一个位于地底病村之下，至于敲响钟后会发生什么没有人知道……而我现在所在的这片大陆，名为罗德兰，传说正是上古时诸王居住之地，我所在的地点，则名为火之祭祀场，是世人祭拜葛温王之地，但现在诅咒早已如瘟疫般传遍整个大陆，这里破败不堪。祭祀场后面便是一条通往山上的小道，据说沿着它一直走就可以到达不死村，进而找到警醒之钟。<br>今天经历了这么多的事情，我有些疲惫，看到不远处便是一个篝火，我走了过去。</p>
+        <p>C++ Primer上的一道练习题（中文第五版，p101，练习3.26）如下：<br>在100页的二分搜索程序中，为什么用的是<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mid = beg + (end - beg) / <span class="number">2</span></span><br></pre></td></tr></table></figure></p>
+<p>而非<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mid = ( beg + end ) / <span class="number">2</span></span><br></pre></td></tr></table></figure></p>
+<p>关于二分搜索算法，主要代码如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> beg = text.begin(), end = text.end();</span><br><span class="line"><span class="keyword">auto</span> mid = text.begin() + (end - beg) / <span class="number">2</span>;</span><br><span class="line"><span class="keyword">while</span>(mid != end &amp;&amp; *mid != sought)&#123;</span><br><span class="line">	<span class="keyword">if</span>(sought &lt; *mid)</span><br><span class="line">		end = mid;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		beg = mid + <span class="number">1</span>;</span><br><span class="line">	mid = beg + (end - beg) / <span class="number">2</span>;</span><br><span class="line">	<span class="comment">//mid = (beg + end) / 2;	编译出错，因为迭代器不支持加法操作</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>因为刚刚在前面的练习就被迭代器溢出坑了，感觉挺容易出错的，就把这道题记录一下。<br>这里的两种写法在数学上是完全一样的，计算效率也没有区别，之所以采用第一种而不是第二种是因为<br>1.第一种写法可以规避掉迭代器溢出风险。如果beg+end的值大于了text.end()就会发生溢出，而end-beg得到的值不可能大于end，所以这种写法更加安全。<br>2.迭代器和指针中加法操作是没有意义的，也无法编译通过，所以第一种写法的通用性也更好，因此二分搜索算法中的这一求中值得操作一般写作第一种。</p>
 
       
     </div>
@@ -291,9 +300,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/游戏/" rel="tag">#游戏</a>
+            <a href="/tags/C/" rel="tag">#C++</a>
           
-            <a href="/tags/黑暗之魂1/" rel="tag">#黑暗之魂1</a>
+            <a href="/tags/vector/" rel="tag">#vector</a>
+          
+            <a href="/tags/C-Primer/" rel="tag">#C++ Primer</a>
           
         </div>
       
@@ -302,17 +313,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/18/Unity中计时器-计时器管理类的实现/" rel="next" title="Unity中计时器/计时器管理类的实现">
-                <i class="fa fa-chevron-left"></i> Unity中计时器/计时器管理类的实现
+              <a href="/2016/04/08/传火者-一/" rel="next" title="传火者<一>">
+                <i class="fa fa-chevron-left"></i> 传火者<一>
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/01/关于使用C-中迭代器完成二分搜索的一个细节/" rel="prev" title="关于使用C++中迭代器完成二分搜索的一个细节">
-                关于使用C++中迭代器完成二分搜索的一个细节 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

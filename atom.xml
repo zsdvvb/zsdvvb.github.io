@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-08T16:47:31.026Z</updated>
+  <updated>2016-05-01T08:51:28.721Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于使用C++中迭代器完成二分搜索的一个细节</title>
+    <link href="http://yoursite.com/2016/05/01/%E5%85%B3%E4%BA%8E%E4%BD%BF%E7%94%A8C-%E4%B8%AD%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%AE%8C%E6%88%90%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2%E7%9A%84%E4%B8%80%E4%B8%AA%E7%BB%86%E8%8A%82/"/>
+    <id>http://yoursite.com/2016/05/01/关于使用C-中迭代器完成二分搜索的一个细节/</id>
+    <published>2016-05-01T08:24:20.000Z</published>
+    <updated>2016-05-01T08:51:28.721Z</updated>
+    
+    <content type="html">&lt;p&gt;C++ Primer上的一道练习题（中文第五版，p101，练习3.26）如下：&lt;br&gt;在100页的二分搜索程序中，为什么用的是&lt;br&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mid = beg + (end - beg) / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;而非&lt;br&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mid = ( beg + end ) / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;关于二分搜索算法，主要代码如下：&lt;br&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;auto&lt;/span&gt; beg = text.begin(), end = text.end();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;auto&lt;/span&gt; mid = text.begin() + (end - beg) / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt;(mid != end &amp;amp;&amp;amp; *mid != sought)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(sought &amp;lt; *mid)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		end = mid;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		beg = mid + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	mid = beg + (end - beg) / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;comment&quot;&gt;//mid = (beg + end) / 2;	编译出错，因为迭代器不支持加法操作&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;因为刚刚在前面的练习就被迭代器溢出坑了，感觉挺容易出错的，就把这道题记录一下。&lt;br&gt;这里的两种写法在数学上是完全一样的，计算效率也没有区别，之所以采用第一种而不是第二种是因为&lt;br&gt;1.第一种写法可以规避掉迭代器溢出风险。如果beg+end的值大于了text.end()就会发生溢出，而end-beg得到的值不可能大于end，所以这种写法更加安全。&lt;br&gt;2.迭代器和指针中加法操作是没有意义的，也无法编译通过，所以第一种写法的通用性也更好，因此二分搜索算法中的这一求中值得操作一般写作第一种。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;C++ Primer上的一道练习题（中文第五版，p101，练习3.26）如下：&lt;br&gt;在100页的二分搜索程序中，为什么用的是&lt;br&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span
+    
+    </summary>
+    
+      <category term="技术·C++" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF%C2%B7C/"/>
+    
+    
+      <category term="C++" scheme="http://yoursite.com/tags/C/"/>
+    
+      <category term="vector" scheme="http://yoursite.com/tags/vector/"/>
+    
+      <category term="C++ Primer" scheme="http://yoursite.com/tags/C-Primer/"/>
+    
+  </entry>
   
   <entry>
     <title>传火者&lt;一&gt;</title>
