@@ -1,499 +1,645 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
 
+
+
+  
+
+
+<html class="theme-next muse use-motion">
 <head>
-  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <title>Archives: 2016/3 | 朱笛</title>
-  <meta name="description" content="The nineth art learner" />
-  <meta name="HandheldFriendly" content="True" />
-  <meta name="MobileOptimized" content="320" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" type="text/css" href="/css/component.css" />
-  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
-  <meta name="generator" content="朱笛">
-  <script src="http://static.duoshuo.com/embed.js"></script>
-  
-  
-  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="atom.xml">
-  
-  
-
-  
-
-</head>
-<body>
-<div class="container">
-    <div class="mp-pusher" id="mp-pusher">
-        <i id="scroll-up" class="fa fa-angle-up"></i>
-        <nav id="mp-menu" class="mp-menu">
-            <div class="mp-level">
-                <a data-pjax class="back-home" style="font-size: 20px" href="/"><h2 ><i class="fa fa-home"></i>
-                        Home</h2></a>
-                <ul class="first-level">
-                    <li>
-                        <a class="fa fa-archive" href="#"><i class="fa fa-angle-left">
-                            </i>&nbsp;&nbsp;Archive</a>
-                        <div class="mp-level page-list">
-                            <h2 ><i class="fa fa-archive"></i>
-                                Archive</h2>
-                            <a class="mp-back" href="#">back</a>
-                            <form id="search-form" action="">
-                                <input type="text" class="search search-archive" placeholder="Search.."/>
-                            </form>
-                            <ul>
-                                <div class="mp-scroll">
-                                
-                                <li class="search-archive-li mp-pjax">
-                                    <a href="/2016/09/26/Unity中控制物体移动方式总结/">Unity中控制物体移动方式总结</a>
-                                </li>
-                                
-                                <li class="search-archive-li mp-pjax">
-                                    <a href="/2016/05/01/关于使用C-中迭代器完成二分搜索的一个细节/">关于使用C++中迭代器完成二分搜索的一个细节</a>
-                                </li>
-                                
-                                <li class="search-archive-li mp-pjax">
-                                    <a href="/2016/04/08/传火者-一/">传火者&lt;一&gt;</a>
-                                </li>
-                                
-                                <li class="search-archive-li mp-pjax">
-                                    <a href="/2016/03/18/Unity中计时器-计时器管理类的实现/">Unity中计时器/计时器管理类的实现</a>
-                                </li>
-                                
-                                <li class="search-archive-li mp-pjax">
-                                    <a href="/2016/03/15/Unity中鼠标点击识别物体的功能/">Unity中鼠标点击识别物体的功能</a>
-                                </li>
-                                
-                                <li class="search-archive-li mp-pjax">
-                                    <a href="/2016/03/13/Unity中有限状态机的学习/">Unity下有限状态机的学习</a>
-                                </li>
-                                
-                                <li class="search-archive-li mp-pjax">
-                                    <a href="/2016/03/10/HEXO-Github搭建个人博客/">终于用Hexo+Github搭建好了个人博客，记录一下</a>
-                                </li>
-                                
-                                <li class="search-archive-li mp-pjax">
-                                    <a href="/2016/03/09/hello-world/">Hello World</a>
-                                </li>
-                                
-                                </div>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a class="fa fa-copy" href="#"><i class="fa fa-angle-left">
-                            </i>&nbsp;&nbsp;Categories</a>
-
-                        <div class="mp-level page-list">
-                            <h2 ><i class="fa fa-copy"></i>
-                                Categories</h2>
-                            <a class="mp-back" href="#">back</a>
-                            <form id="search-form" action="">
-                                <input type="text" class="search search-category" placeholder="Search.."/>
-                            </form>
-                            <ul>
-                                <div class="mp-scroll">
-                                
-                                <li class="search-category-li mp-pjax">
-                                    <a href="/categories/技术·C/">&nbsp;&nbsp;&nbsp;技术·C++</a>
-                                    <small>1</small>
-                                </li>
-                                
-                                <li class="search-category-li mp-pjax">
-                                    <a href="/categories/技术·前端/">&nbsp;&nbsp;&nbsp;技术·前端</a>
-                                    <small>1</small>
-                                </li>
-                                
-                                <li class="search-category-li mp-pjax">
-                                    <a href="/categories/技术·游戏开发/">&nbsp;&nbsp;&nbsp;技术·游戏开发</a>
-                                    <small>4</small>
-                                </li>
-                                
-                                <li class="search-category-li mp-pjax">
-                                    <a href="/categories/游戏/">&nbsp;&nbsp;&nbsp;游戏</a>
-                                    <small>1</small>
-                                </li>
-                                
-                                </div>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a class="fa fa-tags" href="#"><i class="fa fa-angle-left">
-                            </i>&nbsp;&nbsp;Tags</a>
-                        <div class="mp-level page-list">
-                            <h2 ><i class="fa fa-tags"></i>
-                                Tags</h2>
-                            <a class="mp-back" href="#">back</a>
-                            <form id="search-form" action="">
-                                <input type="text" class="search search-tag" placeholder="Search.."/>
-                            </form>
-                            <ul>
-                                <div class="mp-scroll">
-                                
-                                <li class="search-tag-li mp-pjax">
-                                    <a href="/tags/C/">&nbsp;&nbsp;&nbsp;C++</a>
-                                    <small>1</small>
-                                </li>
-                                
-                                <li class="search-tag-li mp-pjax">
-                                    <a href="/tags/C-Primer/">&nbsp;&nbsp;&nbsp;C++ Primer</a>
-                                    <small>1</small>
-                                </li>
-                                
-                                <li class="search-tag-li mp-pjax">
-                                    <a href="/tags/Github/">&nbsp;&nbsp;&nbsp;Github</a>
-                                    <small>1</small>
-                                </li>
-                                
-                                <li class="search-tag-li mp-pjax">
-                                    <a href="/tags/Hexo/">&nbsp;&nbsp;&nbsp;Hexo</a>
-                                    <small>1</small>
-                                </li>
-                                
-                                <li class="search-tag-li mp-pjax">
-                                    <a href="/tags/Timer/">&nbsp;&nbsp;&nbsp;Timer</a>
-                                    <small>1</small>
-                                </li>
-                                
-                                <li class="search-tag-li mp-pjax">
-                                    <a href="/tags/Unity/">&nbsp;&nbsp;&nbsp;Unity</a>
-                                    <small>4</small>
-                                </li>
-                                
-                                <li class="search-tag-li mp-pjax">
-                                    <a href="/tags/tip/">&nbsp;&nbsp;&nbsp;tip</a>
-                                    <small>1</small>
-                                </li>
-                                
-                                <li class="search-tag-li mp-pjax">
-                                    <a href="/tags/vector/">&nbsp;&nbsp;&nbsp;vector</a>
-                                    <small>1</small>
-                                </li>
-                                
-                                <li class="search-tag-li mp-pjax">
-                                    <a href="/tags/有限状态机/">&nbsp;&nbsp;&nbsp;有限状态机</a>
-                                    <small>1</small>
-                                </li>
-                                
-                                <li class="search-tag-li mp-pjax">
-                                    <a href="/tags/游戏/">&nbsp;&nbsp;&nbsp;游戏</a>
-                                    <small>1</small>
-                                </li>
-                                
-                                <li class="search-tag-li mp-pjax">
-                                    <a href="/tags/黑暗之魂1/">&nbsp;&nbsp;&nbsp;黑暗之魂1</a>
-                                    <small>1</small>
-                                </li>
-                                
-                                </div>
-                            </ul>
-                        </div>
-                    </li>
-                    
-                    <li class="mp-pjax"><a class="fa fa-user" href="/about">&nbsp;&nbsp;&nbsp;About me</a></li>
-                    <li><a class="fa fa-github" href="#">&nbsp;&nbsp;&nbsp;Github</a></li>
-
-                </ul>
-
-            </div>
-        </nav>
-        <div id="pjax">
-            <div class="pjax-hidden" style="display: none">
-                
-                    <a  data-pjax href="/2016/09/26/Unity中控制物体移动方式总结/">Unity中控制物体移动方式总结</a>
-                
-                    <a  data-pjax href="/2016/05/01/关于使用C-中迭代器完成二分搜索的一个细节/">关于使用C++中迭代器完成二分搜索的一个细节</a>
-                
-                    <a  data-pjax href="/2016/04/08/传火者-一/">传火者&lt;一&gt;</a>
-                
-                    <a  data-pjax href="/2016/03/18/Unity中计时器-计时器管理类的实现/">Unity中计时器/计时器管理类的实现</a>
-                
-                    <a  data-pjax href="/2016/03/15/Unity中鼠标点击识别物体的功能/">Unity中鼠标点击识别物体的功能</a>
-                
-                    <a  data-pjax href="/2016/03/13/Unity中有限状态机的学习/">Unity下有限状态机的学习</a>
-                
-                    <a  data-pjax href="/2016/03/10/HEXO-Github搭建个人博客/">终于用Hexo+Github搭建好了个人博客，记录一下</a>
-                
-                    <a  data-pjax href="/2016/03/09/hello-world/">Hello World</a>
-                
-                
-                    <a data-pjax href="/categories/技术·C/">&nbsp;&nbsp;技术·C++</a>
-                
-                    <a data-pjax href="/categories/技术·前端/">&nbsp;&nbsp;技术·前端</a>
-                
-                    <a data-pjax href="/categories/技术·游戏开发/">&nbsp;&nbsp;技术·游戏开发</a>
-                
-                    <a data-pjax href="/categories/游戏/">&nbsp;&nbsp;游戏</a>
-                
-                
-                    <a data-pjax href="/tags/C/">&nbsp;&nbsp;C++</a>
-                
-                    <a data-pjax href="/tags/C-Primer/">&nbsp;&nbsp;C++ Primer</a>
-                
-                    <a data-pjax href="/tags/Github/">&nbsp;&nbsp;Github</a>
-                
-                    <a data-pjax href="/tags/Hexo/">&nbsp;&nbsp;Hexo</a>
-                
-                    <a data-pjax href="/tags/Timer/">&nbsp;&nbsp;Timer</a>
-                
-                    <a data-pjax href="/tags/Unity/">&nbsp;&nbsp;Unity</a>
-                
-                    <a data-pjax href="/tags/tip/">&nbsp;&nbsp;tip</a>
-                
-                    <a data-pjax href="/tags/vector/">&nbsp;&nbsp;vector</a>
-                
-                    <a data-pjax href="/tags/有限状态机/">&nbsp;&nbsp;有限状态机</a>
-                
-                    <a data-pjax href="/tags/游戏/">&nbsp;&nbsp;游戏</a>
-                
-                    <a data-pjax href="/tags/黑暗之魂1/">&nbsp;&nbsp;黑暗之魂1</a>
-                
-                <a data-pjax class="fa fa-user" href="/about">&nbsp;&nbsp;&nbsp;About me</a>
-            </div>
-            <nav class="nexus">
-                <li  style="border-left: 1px solid #c6d0da;">
-                    <a id="trigger" href="#"><i class="fa fa-bars"></i></a>
-                </li>
-                <li ><a id="nexus-back" data-pjax href="/">朱笛</a></li>
-                
-                <div id="nav-container">
-                    <div class="post-navbar" style="line-height: 63px;display:none">
-                        <li id="navbar-title"><a href="#">undefined</a></li>
-                        <li id="navbar-toc" style="border-left: none">
-                            <a style="padding-right: 15px">
-                                <span id="toc-content" >Introduction</span><i class="fa fa-chevron-down" ></i>
-                            </a>
-                            <div class="hidden-box">
-                                <ul id="toc"></ul>
-                            </div>
-                        </li>
-                    </div>
-                </div>
-                
-            </nav>
-
-            <div class="scroller">
-            <div class="scroller-inner">
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
-<!-- -->
-<!--<body class="home-template">-->
-<!---->
-  
-<main class="content" role="main">
 
-    
-    <article class="post">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/Unity/'>Unity</a>
-                
-                <a data-pjax href='/tags/Timer/'>Timer</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2016/03/18/Unity中计时器-计时器管理类的实现/">Unity中计时器/计时器管理类的实现</a>
-            </h1>
 
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2016-03-17T16:15:10.000Z"
-                      itemprop="datePublished">2016-03-18</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                <p>今天在做简单回合制游戏demo的过程中，需要用到计时器的功能，搜索了一下，发现可以用currentTime += Time.deltaTime来实现简单的计时功能，于是写了一个Timer和TimerManager类用来管理计时器。</p>
-<h1 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h1><p>因为是自己写的，我的水平实在有限，对于很多东西包括类的设计，属性的封装之类处理的肯定不算好，所以代码质量就。。。不过回合制中的各种计时功能今天倒是都用这个实现了，所以还算能用，明天把回合制的demo写完了再看看别人的代码是怎么实现的计时器的管理的，进行下完善。<br>
-                
-            </p>
-            
-        </section>
-    </article>
-    
-    <article class="post">
 
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/Unity/'>Unity</a>
-                
-                <a data-pjax href='/tags/tip/'>tip</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2016/03/15/Unity中鼠标点击识别物体的功能/">Unity中鼠标点击识别物体的功能</a>
-            </h1>
 
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2016-03-15T15:56:39.000Z"
-                      itemprop="datePublished">2016-03-15</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                <p>今天在使用Unity开发小游戏做练习的过程中，需要获取到被鼠标点击到的物体，不知道应该如何实现，所以在网上搜索了一下，看到了下面这个方法，做了个小demo练习了一下，还挺好用的，所以记录一下：</p>
-<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p><img src="https://ooo.0o0.ooo/2016/03/16/56e91bde102b3.gif" alt="mouseClick.gif"><br>
-                
-            </p>
-            
-        </section>
-    </article>
-    
-    <article class="post">
 
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/Unity/'>Unity</a>
-                
-                <a data-pjax href='/tags/有限状态机/'>有限状态机</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2016/03/13/Unity中有限状态机的学习/">Unity下有限状态机的学习</a>
-            </h1>
 
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2016-03-13T04:41:05.000Z"
-                      itemprop="datePublished">2016-03-13</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                最近需要做一个回合制游戏的demo，开始的时候没什么思路，看了网上一些博客，很多提到需要用到有限状态机。这两天专门看了一下在Unity中有限状态机的写法，主要参考wiki上的FSM写法，附上链接。下面的记录为我自己的思考，作为初学者，难免会有理解的地方，欢迎大家指正。
-什么是FSM?所谓FSM即为有限状态机（Finite State Machine）的缩写，在我看来它是一种实现AI的算法设计思想，用来存储系统中的状态，并根据条件实现状态
-                
-            </p>
-            
-        </section>
-    </article>
-    
-    <article class="post">
 
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/Github/'>Github</a>
-                
-                <a data-pjax href='/tags/Hexo/'>Hexo</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2016/03/10/HEXO-Github搭建个人博客/">终于用Hexo+Github搭建好了个人博客，记录一下</a>
-            </h1>
 
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2016-03-10T14:12:28.000Z"
-                      itemprop="datePublished">2016-03-10</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                <p>折腾了两天，终于算是吧这个博客建起来了，记录以下这次搭建的过程吧。</p>
-<h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>之所以会想要建设一个个人博客，是因为在最近的学习与生活中产生了许多感悟与体会，希望能找个简单清静的地方记录一下，一是总结与巩固，二是对自己起到一个督促的作用。但是现在网络上各家的博客，要么布满了广告，要么UI不合我胃口，思来想去，还是自己搭建一个blog最能满足我的需求，于是这就开始动手。我本来是想所有过程全部自己完成，但是到了实践的时候发现了许多问题。首先我的前端水平还处于初学者阶段，暂时无法做出令自己满意的页面，而写blog的事情我却不想再耽误下去；然后就是我在写的时候发现如果全部自己完成的话，意味着我每次需要发布文章的时候，就需要为文章单独写个界面，我觉得的即使是我可以写一个通用界面出来，但是每次发布仍然有许多代码要写，这意味着可能到我开始写博客的时候已经过了很长一段时间，这样一定会打击到我写blog的积极性，所以我开始寻求新的一种解决方案。很快我注意到了jekyll，但是尝试之后发现，天朝的程序员真是苦逼，jekyll即使在挂VPN的情况下仍然会安装失败，遂放弃。继续寻找，终于发现了这次的主角——<strong>Hexo</strong>！下面就详细的记录一下搭建的过程。<br>
-                
-            </p>
-            
-        </section>
-    </article>
-    
-    <article class="post">
 
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2016/03/09/hello-world/">Hello World</a>
-            </h1>
 
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2016-03-09T13:40:43.241Z"
-                      itemprop="datePublished">2016-03-09</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-                
-            </p>
-            
-        </section>
-    </article>
-    
-    <nav class="pagination" role="pagination">
-        
-        <span class="page-number">Page 1 of 1</span>
-        
-    </nav>
-</main>
 
 
   
-<footer class="site-footer">
-    
-    <a class="subscribe icon-feed" href="atom.xml"><span class="tooltip">Subscribe!</span></a>
-    
-    <div class="inner">
-        <section class="copyright"><a href="/"></a> &copy; 朱笛 2014</section>
-        <section class="poweredby">Published with <a target="_blank" href="http://hexo.io/">Hexo   </a> and Theme by <a target="_blank" href="https://github.com/yuche/hexo-theme-kael">Kael</a></section>
-    </div>
-</footer>
-</div>
-</div><!-- /scroller -->
-
-</div><!-- /pusher -->
-</div><!-- /container -->
-</div>
-
-<!-- Easter eggs -->
-
-<div class="egg animated">
-    <a id="close-button" href="#">X</a>
-    <div class="block">
-        <div class="loading">
-            <span class="ball1"></span>
-            <span class="ball2"></span>
-        </div>
-    </div>
-</div>
   
-<script src="//cdn.staticfile.org/jquery/1.11.0/jquery.min.js"></script>
-<script>
-    if (!window.jQuery) {
-        var script = document.createElement('script');
-        script.src = "/js/jquery.min.js";
-        document.body.appendChild(script);
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="朱笛" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="记录生活/游戏/学习">
+<meta property="og:type" content="website">
+<meta property="og:title" content="朱笛">
+<meta property="og:url" content="http://yoursite.com/archives/2016/03/index.html">
+<meta property="og:site_name" content="朱笛">
+<meta property="og:description" content="记录生活/游戏/学习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="朱笛">
+<meta name="twitter:description" content="记录生活/游戏/学习">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
     }
+  };
 </script>
-<script type="text/javascript" src="/js/lib.js"></script>
-<script type="text/javascript" src="/js/main.js"></script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/archives/2016/03/"/>
+
+
+  <title> 归档 | 朱笛 </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
 
 
 
 
 
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left  page-archive  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">朱笛</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">The nineth art learner</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule" rel="section">
+            
+            日程
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <section id="posts" class="posts-collapse">
+    <span class="archive-move-on"></span>
+
+    <span class="archive-page-counter">
+      
+      
+      
+        
+      
+      嗯..! 目前共计 8 篇日志。 继续努力。
+    </span>
+
+    
+
+      
+      
+      
+
+      
+        
+        <div class="collection-title">
+          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
+        </div>
+      
+      
+
+      
+
+  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
+        
+            <a class="post-title-link" href="/2016/03/18/Unity中计时器-计时器管理类的实现/" itemprop="url">
+              
+                <span itemprop="name">Unity中计时器/计时器管理类的实现</span>
+              
+            </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-03-18T00:15:10+08:00"
+              content="2016-03-18" >
+          03-18
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+    
+
+      
+      
+      
+
+      
+      
+
+      
+
+  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
+        
+            <a class="post-title-link" href="/2016/03/15/Unity中鼠标点击识别物体的功能/" itemprop="url">
+              
+                <span itemprop="name">Unity中鼠标点击识别物体的功能</span>
+              
+            </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-03-15T23:56:39+08:00"
+              content="2016-03-15" >
+          03-15
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+    
+
+      
+      
+      
+
+      
+      
+
+      
+
+  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
+        
+            <a class="post-title-link" href="/2016/03/13/Unity中有限状态机的学习/" itemprop="url">
+              
+                <span itemprop="name">Unity下有限状态机的学习</span>
+              
+            </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-03-13T12:41:05+08:00"
+              content="2016-03-13" >
+          03-13
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+    
+
+      
+      
+      
+
+      
+      
+
+      
+
+  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
+        
+            <a class="post-title-link" href="/2016/03/10/HEXO-Github搭建个人博客/" itemprop="url">
+              
+                <span itemprop="name">终于用Hexo+Github搭建好了个人博客，记录一下</span>
+              
+            </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-03-10T22:12:28+08:00"
+              content="2016-03-10" >
+          03-10
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+    
+
+      
+      
+      
+
+      
+      
+
+      
+
+  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
+        
+            <a class="post-title-link" href="/2016/03/09/hello-world/" itemprop="url">
+              
+                <span itemprop="name">Hello World</span>
+              
+            </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-03-09T21:40:43+08:00"
+              content="2016-03-09" >
+          03-09
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+    
+
+  </section>
+
+  
+
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://ww4.sinaimg.cn/small/005EelGgjw8f1g3keaylgj30e80e874n.jpg"
+               alt="朱笛" />
+          <p class="site-author-name" itemprop="name">朱笛</p>
+          <p class="site-description motion-element" itemprop="description">记录生活/游戏/学习</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">朱笛</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  
+    <script type="text/javascript" id="motion.page.archive">
+      $('.archive-year').velocity('transition.slideLeftIn');
+    </script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
 
 
 </body>
