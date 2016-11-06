@@ -1,0 +1,647 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="计算机图形学,OPENGL," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="朱笛" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="关于OPENGL以及本次学习最近又开始了计算机图形学的学习，目的是对我的游戏开发相关知识进行补习，便于日后能跟为深入的理解游戏开发过程游戏引擎的部分功能，学习的主要目标是至少完成在我学习的教程网站上的全部课程，并对其中涉及的相关知识进行学习，必要的blog进行记录，次要目标是尽力完成一个C++光栅化渲染器，这样就可以对整个GPU图形绘制流水线有一个更为深刻的认识，这个可以参考知乎上的一个问题如何开">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OPENGL学习笔记<一>">
+<meta property="og:url" content="http://yoursite.com/2016/11/06/OPENGL学习笔记-一/index.html">
+<meta property="og:site_name" content="朱笛">
+<meta property="og:description" content="关于OPENGL以及本次学习最近又开始了计算机图形学的学习，目的是对我的游戏开发相关知识进行补习，便于日后能跟为深入的理解游戏开发过程游戏引擎的部分功能，学习的主要目标是至少完成在我学习的教程网站上的全部课程，并对其中涉及的相关知识进行学习，必要的blog进行记录，次要目标是尽力完成一个C++光栅化渲染器，这样就可以对整个GPU图形绘制流水线有一个更为深刻的认识，这个可以参考知乎上的一个问题如何开">
+<meta property="og:image" content="https://ooo.0o0.ooo/2016/11/06/581ea451899df.png">
+<meta property="og:updated_time" content="2016-11-06T03:38:17.999Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OPENGL学习笔记<一>">
+<meta name="twitter:description" content="关于OPENGL以及本次学习最近又开始了计算机图形学的学习，目的是对我的游戏开发相关知识进行补习，便于日后能跟为深入的理解游戏开发过程游戏引擎的部分功能，学习的主要目标是至少完成在我学习的教程网站上的全部课程，并对其中涉及的相关知识进行学习，必要的blog进行记录，次要目标是尽力完成一个C++光栅化渲染器，这样就可以对整个GPU图形绘制流水线有一个更为深刻的认识，这个可以参考知乎上的一个问题如何开">
+<meta name="twitter:image" content="https://ooo.0o0.ooo/2016/11/06/581ea451899df.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/06/OPENGL学习笔记-一/"/>
+
+
+  <title> OPENGL学习笔记<一> | 朱笛 </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">朱笛</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">The nineth art learner</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                OPENGL学习笔记<一>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-06T09:09:40+08:00" content="2016-11-06">
+              2016-11-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术·计算机图形学/" itemprop="url" rel="index">
+                    <span itemprop="name">技术·计算机图形学</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="关于OPENGL以及本次学习"><a href="#关于OPENGL以及本次学习" class="headerlink" title="关于OPENGL以及本次学习"></a>关于OPENGL以及本次学习</h1><p>最近又开始了计算机图形学的学习，目的是对我的游戏开发相关知识进行补习，便于日后能跟为深入的理解游戏开发过程游戏引擎的部分功能，学习的主要目标是至少完成在我学习的教程网站上的全部课程，并对其中涉及的相关知识进行学习，必要的blog进行记录，次要目标是尽力完成一个C++光栅化渲染器，这样就可以对整个GPU图形绘制流水线有一个更为深刻的认识，这个可以参考知乎上的一个问题<a href="https://www.zhihu.com/question/24786878/answer/105988273" target="_blank" rel="external">如何开始用 C++ 写一个光栅化渲染器？</a>。而OPENGL或者D3D则是在学习过程中无法避开的一个学习工具，我选择学习OPENGL。首先复习了一下相关的数学知识，例如关于矩阵，标架的变换，平移旋转缩放。之前由于别的事情耽误的学习内容这次一定补回来！がんばってね！！！<br><a id="more"></a><br>我是在这个网站：<a href="https://learnopengl-cn.github.io/" target="_blank" rel="external">https://learnopengl-cn.github.io/</a>进行OPENGL的学习的。<br>根据教程，我需要导入的库文件有两个，一个是glew32s.lib,一个是glfw3.lib，另外还应该在链接器的输入中加入opengl32.lib，这样一个OPENGL文件需要的环境就已经搭建完毕。</p>
+<h1 id="程序流程"><a href="#程序流程" class="headerlink" title="程序流程"></a>程序流程</h1><p>进入可编程管线版本的OPENGL相对于固定管线时代的程序看起来要繁琐复杂一些，可以理解，毕竟自由度上去了嘛。不过其实如果能够理解各段代码的作用，整个程序的流程看起来还是比较清晰的。</p>
+<h2 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h2><p>首先建立工程，打入相关配置环境，然后在文件中导入相关库（glew32s.lib, glfw3.lib），相关代码类似于下面这样:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// GLEW</span><br><span class="line">//因为我们使用的是GLEW的静态链接库，所以定义宏GLEW_STATIC</span><br><span class="line">#define GLEW_STATIC	</span><br><span class="line">#include &lt;GL/glew.h&gt;</span><br><span class="line">// GLFW</span><br><span class="line">#include &lt;GLFW/glfw3.h&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="初始化GLFW"><a href="#初始化GLFW" class="headerlink" title="初始化GLFW"></a>初始化GLFW</h2><p>然后我们需要初始化GLFW，并配置GLFW的相关属性。通过调用glfwInit()可以初始化GLFW，然后通过使glfwWindowHint函数来配置GLFW，glfw的第一个参数代表选项的名称，我们可以从很多以GLFW_开头的枚举值中选择，第二个参数接受一个整形，用来设置这个选项的值，该函数所有的选项以及对应的值都有可以在<a href="http://www.glfw.org/docs/latest/window.html#window_hints" target="_blank" rel="external">GLFW’s window handling</a>这篇文档中找到。示例代码向下面这样<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// Init GLFW</span><br><span class="line">glfwInit();</span><br><span class="line">// Set all the required options for GLFW</span><br><span class="line">glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);</span><br><span class="line">glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);</span><br><span class="line">glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);</span><br><span class="line">glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);</span><br></pre></td></tr></table></figure></p>
+<h2 id="创建窗口对象"><a href="#创建窗口对象" class="headerlink" title="创建窗口对象"></a>创建窗口对象</h2><p>设置窗口完成之后就可以创建窗口对象了，这个窗口对象存放了所有和窗口相关的数据，这个对象会被GLFW的函数频繁的用到，示例代码想下面这样<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">GLFWwindow* window = glfwCreateWindow(800, 600, &quot;LearnOpenGL&quot;, nullptr, nullptr);</span><br><span class="line">if (window == nullptr)</span><br><span class="line">&#123;</span><br><span class="line">    std::cout &lt;&lt; &quot;Failed to create GLFW window&quot; &lt;&lt; std::endl;</span><br><span class="line">    glfwTerminate();</span><br><span class="line">    return -1;</span><br><span class="line">&#125;</span><br><span class="line">glfwMakeContextCurrent(window);</span><br><span class="line">//key_callback是我们自己设置的按键回掉函数，把他加到我们当前的window对象中</span><br><span class="line">glfwSetKeyCallback(window, key_callback);</span><br></pre></td></tr></table></figure></p>
+<h2 id="初始化GLEW"><a href="#初始化GLEW" class="headerlink" title="初始化GLEW"></a>初始化GLEW</h2><p>创建好窗口对象后，接下来就是初始化GLEW，示例代码像下面这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//将glewExperimental的值设为true可以让GLEW在管理OPENGL的指针是使用更多的现代化的技术</span><br><span class="line">glewExperimental = GL_TRUE;		</span><br><span class="line">if (glewInit() != GLEW_OK)		//初始化GLEW并检测初始化是否成功</span><br><span class="line">&#123;</span><br><span class="line">    std::cout &lt;&lt; &quot;Failed to initialize GLEW&quot; &lt;&lt; std::endl;</span><br><span class="line">    return -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="设置渲染窗口的大小"><a href="#设置渲染窗口的大小" class="headerlink" title="设置渲染窗口的大小"></a>设置渲染窗口的大小</h2><p>初始化GLEW完成后，就要设置渲染窗口viewport的大小，示例代码像下面这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int width, height;</span><br><span class="line">glfwGetFramebufferSize(window, &amp;width, &amp;height);</span><br><span class="line">//glViewport的前两个参数设置窗口左下角的位置，后两个参数设置渲染窗口的宽和高</span><br><span class="line">glViewport(0, 0, width, height);</span><br></pre></td></tr></table></figure></p>
+<h2 id="GAMELOOP"><a href="#GAMELOOP" class="headerlink" title="GAMELOOP"></a>GAMELOOP</h2><p>接着我们就让OPENGL进入一个叫做GAMELOOP的循环之中，此后，如果OPENGL没有收到关闭窗口的要求，就会一直执行循环之中的代码，直到收到相关的信号，对我们图形的绘制也是在这个循环之中完成的。示例代码像下面这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// Game loop</span><br><span class="line">while (!glfwWindowShouldClose(window))</span><br><span class="line">&#123;</span><br><span class="line">    //检查是否有回调事件，然后调用对应的回调函数</span><br><span class="line">    glfwPollEvents();</span><br><span class="line"></span><br><span class="line">    // 将渲染画面的代码放到下面</span><br><span class="line">    ···</span><br><span class="line"></span><br><span class="line">    //设置清除屏幕所用的颜色然后清除屏幕</span><br><span class="line">    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);</span><br><span class="line">    glClear(GL_COLOR_BUFFER_BIT);</span><br><span class="line"></span><br><span class="line">    //采用双缓存模式，这样当下一帧的画面绘制好之后，才会交换缓存，可以解决图像闪烁的问题</span><br><span class="line">    //交换缓存</span><br><span class="line">    glfwSwapBuffers(window);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="退出程序"><a href="#退出程序" class="headerlink" title="退出程序"></a>退出程序</h2><p>最后在退出程序之前，释放glfw分配的内存：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">glfwTerminate();</span><br><span class="line">return 0;</span><br></pre></td></tr></table></figure></p>
+<p>最后就可以得到一个窗口<br><img src="https://ooo.0o0.ooo/2016/11/06/581ea451899df.png" alt="hellowindow2.png"></p>
+<p>以上です！</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/计算机图形学/" rel="tag">#计算机图形学</a>
+          
+            <a href="/tags/OPENGL/" rel="tag">#OPENGL</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/26/Unity中控制物体移动方式总结/" rel="next" title="Unity中控制物体移动方式总结">
+                <i class="fa fa-chevron-left"></i> Unity中控制物体移动方式总结
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://ww4.sinaimg.cn/small/005EelGgjw8f1g3keaylgj30e80e874n.jpg"
+               alt="朱笛" />
+          <p class="site-author-name" itemprop="name">朱笛</p>
+          <p class="site-description motion-element" itemprop="description">The nineth art learner</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/zsdvvb" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/zsdvvb" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://steamcommunity.com/id/zsdvvb" target="_blank" title="Steam">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Steam
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于OPENGL以及本次学习"><span class="nav-number">1.</span> <span class="nav-text">关于OPENGL以及本次学习</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#程序流程"><span class="nav-number">2.</span> <span class="nav-text">程序流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置环境"><span class="nav-number">2.1.</span> <span class="nav-text">配置环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化GLFW"><span class="nav-number">2.2.</span> <span class="nav-text">初始化GLFW</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建窗口对象"><span class="nav-number">2.3.</span> <span class="nav-text">创建窗口对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化GLEW"><span class="nav-number">2.4.</span> <span class="nav-text">初始化GLEW</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置渲染窗口的大小"><span class="nav-number">2.5.</span> <span class="nav-text">设置渲染窗口的大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GAMELOOP"><span class="nav-number">2.6.</span> <span class="nav-text">GAMELOOP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#退出程序"><span class="nav-number">2.7.</span> <span class="nav-text">退出程序</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">朱笛</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
