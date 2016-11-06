@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-06T03:38:17.999Z</updated>
+  <updated>2016-11-06T13:50:34.977Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,13 +16,47 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>OPENGL学习笔记&lt;二&gt;</title>
+    <link href="http://yoursite.com/2016/11/06/OPENGL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C/"/>
+    <id>http://yoursite.com/2016/11/06/OPENGL学习笔记-二/</id>
+    <published>2016-11-06T10:51:30.000Z</published>
+    <updated>2016-11-06T13:50:34.977Z</updated>
+    
+    <content type="html">&lt;p&gt;这篇学习笔记主要记录我对与VBO,VAO的理解，以及对在程序中与shader进行链接的理解。（看了好久才看懂的东西，然后发现这跟图形学没什么关系，就是在学习API而已，没办法，谁让OPENGL就是个工具呢，而且还是个封装好的工具，而且还是封装的跟个智障一样的工具，sad…）&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;对VBO的理解&quot;&gt;&lt;a href=&quot;#对VBO的理解&quot; class=&quot;headerlink&quot; title=&quot;对VBO的理解&quot;&gt;&lt;/a&gt;对VBO的理解&lt;/h1&gt;&lt;p&gt;对VBO我的理解是，把数据从CPU发送到显卡的速度相对较慢，如果每次GPU在运行shader或别的进程等需要用到数据的时候才从CPU传到GPU的话，效率就会很低。所以我们可以先把数据发送到GPU的内存（即显存）中缓存起来，因为GPU对显存的访问速度很快，所以效率就会大大提高，而VBO就是用来管理这部分缓存的对象。&lt;/p&gt;
+&lt;h1 id=&quot;VBO的使用&quot;&gt;&lt;a href=&quot;#VBO的使用&quot; class=&quot;headerlink&quot; title=&quot;VBO的使用&quot;&gt;&lt;/a&gt;VBO的使用&lt;/h1&gt;&lt;p&gt;然后思考下一个问题，就是应该如何使用VBO，一般来说VBO中存储的就是各种顶点数据，这些数据可能是坐标，颜色，纹理坐标，法线向量等等等，不管是什么类型的数据，通常都是一个1~4维的向量，首先当然是定义这些数据以便待会儿使用。然后在需要的时候，我们调用&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;glGenBuffers(GLsizei size, GLuint *buffers)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;假设我们定义了一个VBO数组VBOs，对它调用这个函数，这个函数会生成一个整数类型的ID，并将他们赋给VBOs中的每一个VBO,接着调用&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;glBindBuffer(GLenum target, Gluint buffer)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;它可以为VBO绑定缓冲类型，例如target的值可以为GL_ARRAY_BUFFER或者GL_ELEMENT_ARRAY_BUFFER，然后我们调用下面的函数&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;void glBufferData(GLenum target, GLsizeiptr size, const GLvoid * data, GLenum usage);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;这一步会将数据发送到当前绑定在target上的VBO中，应该是这一步才为VBO分配内存。&lt;br&gt;之后需要执行下面这个函数，这个函数十分重要，因为他告诉了GPU/OPENGL如何解析缓存在VBO中的数据&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;glVertexAttribPointer(GLuint index, &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			GLint size, &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			GLenum type, &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			GLboolean bormalized, &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			GLsizei stride, &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			const GLvoid * pointer)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;在这个函数里面，index应该与shader里面指定的顶点位置相匹配，这样就将VBO数据按照glVertexAttribPointer中指定的格式传到shader里面location值与index的值相同的顶点属性中。可以看到在教程中VBO中存储了三个顶点的坐标，然后传送数据到shader的vec3类型的position输入变量，明显position每次只能接受3个浮点数，所以我觉得shader会按照glDrawArray中的参数3，分三次读取数据，不管这里OPENGL是怎么实现的，反正shader会根据相应location中得到的输入数据依次处理各个顶点。&lt;br&gt;至此，VBO的工作已经完成，我们成功的将数据传送到VBO中缓存起来，然后在需要的时候shader会从VBO中相应的位置读取数据。 &lt;/p&gt;
+&lt;h1 id=&quot;对于VAO的理解&quot;&gt;&lt;a href=&quot;#对于VAO的理解&quot; class=&quot;headerlink&quot; title=&quot;对于VAO的理解&quot;&gt;&lt;/a&gt;对于VAO的理解&lt;/h1&gt;&lt;p&gt;下面再说一下VAO的作用，首先需要明白的是OPENGL整体其实就是一个大型的有限状态机，所以在每个currenTime都只能有一个状态存在，设每个状态为一个currentObject,我们在VBO中进行的一系列设置，绑定VBO，传送数据，设置解析格式，相当于把这些状态绑定到currentObject上面，如果绑定了新的状态的话，原来的状态就会被覆盖，这样如果我们每次需要绘制新的物体的时候，都需要重新再进行一次绑定，这样在顶点属性，需要绘制的物体很多时，VBO的是设置绑定就会变成一件无比繁琐的事。这个时候我们就需要用到VAO，VAO就是一个顶点数组，我们定义一个VAO，在绑定VAO和解绑VAO之间进行VBO的绑定已经这个属性设置，这样这些VBO的属性就会被存储在VAO中，从此，我们就可以在VAO之间切换从而十分方便的进行currentObject的切换。&lt;/p&gt;
+&lt;h1 id=&quot;参考资料：&quot;&gt;&lt;a href=&quot;#参考资料：&quot; class=&quot;headerlink&quot; title=&quot;参考资料：&quot;&gt;&lt;/a&gt;参考资料：&lt;/h1&gt;&lt;p&gt;知乎问题，&lt;a href=&quot;https://www.zhihu.com/question/30095978/answer/67147426&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;如何正确理解opengl的vao&lt;/a&gt;，下面hoodlum1980这位大佬的&lt;a href=&quot;http://zhihu.com/question/30095978/answer/67147426&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;[回答]&lt;/a&gt;十分清晰，让我对VAO和VBO的理解加深了许多。&lt;br&gt;还有这位外国大佬的&lt;a href=&quot;https://capnramses.github.io//opengl/vertexbuffers.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;博文&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;以上です！&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这篇学习笔记主要记录我对与VBO,VAO的理解，以及对在程序中与shader进行链接的理解。（看了好久才看懂的东西，然后发现这跟图形学没什么关系，就是在学习API而已，没办法，谁让OPENGL就是个工具呢，而且还是个封装好的工具，而且还是封装的跟个智障一样的工具，sad…）&lt;br&gt;
+    
+    </summary>
+    
+      <category term="技术·计算机图形学" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF%C2%B7%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+    
+      <category term="计算机图形学" scheme="http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+      <category term="OPENGL" scheme="http://yoursite.com/tags/OPENGL/"/>
+    
+  </entry>
+  
+  <entry>
     <title>OPENGL学习笔记&lt;一&gt;</title>
     <link href="http://yoursite.com/2016/11/06/OPENGL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%B8%80/"/>
     <id>http://yoursite.com/2016/11/06/OPENGL学习笔记-一/</id>
     <published>2016-11-06T01:09:40.000Z</published>
-    <updated>2016-11-06T03:38:17.999Z</updated>
+    <updated>2016-11-06T13:53:22.630Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;关于OPENGL以及本次学习&quot;&gt;&lt;a href=&quot;#关于OPENGL以及本次学习&quot; class=&quot;headerlink&quot; title=&quot;关于OPENGL以及本次学习&quot;&gt;&lt;/a&gt;关于OPENGL以及本次学习&lt;/h1&gt;&lt;p&gt;最近又开始了计算机图形学的学习，目的是对我的游戏开发相关知识进行补习，便于日后能跟为深入的理解游戏开发过程游戏引擎的部分功能，学习的主要目标是至少完成在我学习的教程网站上的全部课程，并对其中涉及的相关知识进行学习，必要的blog进行记录，次要目标是尽力完成一个C++光栅化渲染器，这样就可以对整个GPU图形绘制流水线有一个更为深刻的认识，这个可以参考知乎上的一个问题&lt;a href=&quot;https://www.zhihu.com/question/24786878/answer/105988273&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;如何开始用 C++ 写一个光栅化渲染器？&lt;/a&gt;。而OPENGL或者D3D则是在学习过程中无法避开的一个学习工具，我选择学习OPENGL。首先复习了一下相关的数学知识，例如关于矩阵，标架的变换，平移旋转缩放。之前由于别的事情耽误的学习内容这次一定补回来！がんばってね！！！&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;我是在这个网站：&lt;a href=&quot;https://learnopengl-cn.github.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://learnopengl-cn.github.io/&lt;/a&gt;进行OPENGL的学习的。&lt;br&gt;根据教程，我需要导入的库文件有两个，一个是glew32s.lib,一个是glfw3.lib，另外还应该在链接器的输入中加入opengl32.lib，这样一个OPENGL文件需要的环境就已经搭建完毕。&lt;/p&gt;
+    <content type="html">&lt;p&gt;关于OPENGL以及本次学习,最近又开始了计算机图形学的学习，目的是对我的游戏开发相关知识进行补习，便于日后能跟为深入的理解游戏开发过程游戏引擎的部分功能，学习的主要目标是至少完成在我学习的教程网站上的全部课程，并对其中涉及的相关知识进行学习，必要的blog进行记录，次要目标是尽力完成一个C++光栅化渲染器，这样就可以对整个GPU图形绘制流水线有一个更为深刻的认识，这个可以参考知乎上的一个问题&lt;a href=&quot;https://www.zhihu.com/question/24786878/answer/105988273&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;如何开始用 C++ 写一个光栅化渲染器？&lt;/a&gt;。而OPENGL或者D3D则是在学习过程中无法避开的一个学习工具，我选择学习OPENGL。首先复习了一下相关的数学知识，例如关于矩阵，标架的变换，平移旋转缩放。之前由于别的事情耽误的学习内容这次一定补回来！がんばってね！！！&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;我是在这个网站：&lt;a href=&quot;https://learnopengl-cn.github.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://learnopengl-cn.github.io/&lt;/a&gt;进行OPENGL的学习的。&lt;br&gt;根据教程，我需要导入的库文件有两个，一个是glew32s.lib,一个是glfw3.lib，另外还应该在链接器的输入中加入opengl32.lib，这样一个OPENGL文件需要的环境就已经搭建完毕。&lt;/p&gt;
 &lt;h1 id=&quot;程序流程&quot;&gt;&lt;a href=&quot;#程序流程&quot; class=&quot;headerlink&quot; title=&quot;程序流程&quot;&gt;&lt;/a&gt;程序流程&lt;/h1&gt;&lt;p&gt;进入可编程管线版本的OPENGL相对于固定管线时代的程序看起来要繁琐复杂一些，可以理解，毕竟自由度上去了嘛。不过其实如果能够理解各段代码的作用，整个程序的流程看起来还是比较清晰的。&lt;/p&gt;
 &lt;h2 id=&quot;配置环境&quot;&gt;&lt;a href=&quot;#配置环境&quot; class=&quot;headerlink&quot; title=&quot;配置环境&quot;&gt;&lt;/a&gt;配置环境&lt;/h2&gt;&lt;p&gt;首先建立工程，打入相关配置环境，然后在文件中导入相关库（glew32s.lib, glfw3.lib），相关代码类似于下面这样:&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;// GLEW&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//因为我们使用的是GLEW的静态链接库，所以定义宏GLEW_STATIC&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#define GLEW_STATIC	&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#include &amp;lt;GL/glew.h&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;// GLFW&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#include &amp;lt;GLFW/glfw3.h&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h2 id=&quot;初始化GLFW&quot;&gt;&lt;a href=&quot;#初始化GLFW&quot; class=&quot;headerlink&quot; title=&quot;初始化GLFW&quot;&gt;&lt;/a&gt;初始化GLFW&lt;/h2&gt;&lt;p&gt;然后我们需要初始化GLFW，并配置GLFW的相关属性。通过调用glfwInit()可以初始化GLFW，然后通过使glfwWindowHint函数来配置GLFW，glfw的第一个参数代表选项的名称，我们可以从很多以GLFW_开头的枚举值中选择，第二个参数接受一个整形，用来设置这个选项的值，该函数所有的选项以及对应的值都有可以在&lt;a href=&quot;http://www.glfw.org/docs/latest/window.html#window_hints&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GLFW’s window handling&lt;/a&gt;这篇文档中找到。示例代码向下面这样&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;// Init GLFW&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;glfwInit();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;// Set all the required options for GLFW&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
@@ -37,7 +71,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;关于OPENGL以及本次学习&quot;&gt;&lt;a href=&quot;#关于OPENGL以及本次学习&quot; class=&quot;headerlink&quot; title=&quot;关于OPENGL以及本次学习&quot;&gt;&lt;/a&gt;关于OPENGL以及本次学习&lt;/h1&gt;&lt;p&gt;最近又开始了计算机图形学的学习，目的是对我的游戏开发相关知识进行补习，便于日后能跟为深入的理解游戏开发过程游戏引擎的部分功能，学习的主要目标是至少完成在我学习的教程网站上的全部课程，并对其中涉及的相关知识进行学习，必要的blog进行记录，次要目标是尽力完成一个C++光栅化渲染器，这样就可以对整个GPU图形绘制流水线有一个更为深刻的认识，这个可以参考知乎上的一个问题&lt;a href=&quot;https://www.zhihu.com/question/24786878/answer/105988273&quot;&gt;如何开始用 C++ 写一个光栅化渲染器？&lt;/a&gt;。而OPENGL或者D3D则是在学习过程中无法避开的一个学习工具，我选择学习OPENGL。首先复习了一下相关的数学知识，例如关于矩阵，标架的变换，平移旋转缩放。之前由于别的事情耽误的学习内容这次一定补回来！がんばってね！！！&lt;br&gt;
+      &lt;p&gt;关于OPENGL以及本次学习,最近又开始了计算机图形学的学习，目的是对我的游戏开发相关知识进行补习，便于日后能跟为深入的理解游戏开发过程游戏引擎的部分功能，学习的主要目标是至少完成在我学习的教程网站上的全部课程，并对其中涉及的相关知识进行学习，必要的blog进行记录，次要目标是尽力完成一个C++光栅化渲染器，这样就可以对整个GPU图形绘制流水线有一个更为深刻的认识，这个可以参考知乎上的一个问题&lt;a href=&quot;https://www.zhihu.com/question/24786878/answer/105988273&quot;&gt;如何开始用 C++ 写一个光栅化渲染器？&lt;/a&gt;。而OPENGL或者D3D则是在学习过程中无法避开的一个学习工具，我选择学习OPENGL。首先复习了一下相关的数学知识，例如关于矩阵，标架的变换，平移旋转缩放。之前由于别的事情耽误的学习内容这次一定补回来！がんばってね！！！&lt;br&gt;
     
     </summary>
     
