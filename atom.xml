@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-06T13:50:34.977Z</updated>
+  <updated>2016-11-11T09:05:04.077Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数学上的欧拉角，万向节锁以及四元数</title>
+    <link href="http://yoursite.com/2016/11/11/%E5%85%B3%E4%BA%8E%E6%AC%A7%E6%8B%89%E8%A7%92%E5%92%8C%E4%B8%87%E5%90%91%E8%8A%82%E9%94%81/"/>
+    <id>http://yoursite.com/2016/11/11/关于欧拉角和万向节锁/</id>
+    <published>2016-11-11T07:47:25.000Z</published>
+    <updated>2016-11-11T09:05:04.077Z</updated>
+    
+    <content type="html">&lt;p&gt;今天学习的时又碰到了万向节锁这个东西，上次见到它的时候看半天都没明白是个什么东西，今天算是搞懂了，记录下。&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;什么是欧拉角-Eular-angle&quot;&gt;&lt;a href=&quot;#什么是欧拉角-Eular-angle&quot; class=&quot;headerlink&quot; title=&quot;什么是欧拉角(Eular angle)&quot;&gt;&lt;/a&gt;什么是欧拉角(Eular angle)&lt;/h1&gt;&lt;p&gt;欧拉角主要被用来描述物体在空间中的旋转，关于它的具体定义，&lt;a href=&quot;https://zh.wikipedia.org/zh/%E6%AC%A7%E6%8B%89%E8%A7%92&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;wikipedia&lt;/a&gt;中是这样写的：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;莱昂哈德·欧拉用欧拉角来描述刚体在三维欧几里得空间的取向。对于任何参考系，一个刚体的取向，是依照顺序，从这参考系，做三个欧拉角的旋转而设定的。所以，刚体的取向可以用三个基本旋转矩阵来决定。换句话说，任何关于刚体旋转的旋转矩阵是由三个基本旋转矩阵复合而成的。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;欧拉角有两种：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;静态：即绕世界坐标系三个轴的旋转，由于物体旋转过程中坐标轴保持静止，所以称为静态。&lt;/li&gt;
+&lt;li&gt;动态：即绕物体坐标系三个轴的旋转，由于物体旋转过程中坐标轴随着物体做相同的转动，所以称为动态。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;万向节锁（Gimbal-lock）的产生与解决方案&quot;&gt;&lt;a href=&quot;#万向节锁（Gimbal-lock）的产生与解决方案&quot; class=&quot;headerlink&quot; title=&quot;万向节锁（Gimbal lock）的产生与解决方案&quot;&gt;&lt;/a&gt;万向节锁（Gimbal lock）的产生与解决方案&lt;/h1&gt;&lt;p&gt;万向节锁是使用动态万象节锁会出现的现象，静态欧拉角不会出现万向锁的问题。&lt;br&gt;由欧拉角的定义我们可以发现，对于一个向量，任何一个角度的旋转，我们都可以通过欧拉角实现，但是在我们定义的坐标系下，假设由内到外的顺序是z-x-y轴，这样当我们旋转z轴与y轴平行时，万向节锁出现，我们会发现此时欧拉角缺失了一个自由度，只靠语言很难清晰的描述清楚这个情况，这个&lt;a href=&quot;http://v.youku.com/v_show/id_XNzkyOTIyMTI=.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;视频&lt;/a&gt;讲解的很清楚。要彻底解决万像锁的问题，需要用到四元数。&lt;/p&gt;
+&lt;h1 id=&quot;四元数（Quaternion）&quot;&gt;&lt;a href=&quot;#四元数（Quaternion）&quot; class=&quot;headerlink&quot; title=&quot;四元数（Quaternion）&quot;&gt;&lt;/a&gt;四元数（Quaternion）&lt;/h1&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今天学习的时又碰到了万向节锁这个东西，上次见到它的时候看半天都没明白是个什么东西，今天算是搞懂了，记录下。
+    
+    </summary>
+    
+      <category term="技术·计算机图形学" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF%C2%B7%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+    
+      <category term="计算机图形学" scheme="http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>OPENGL学习笔记&lt;二&gt;</title>
