@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="C++,vector,C++ Primer," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -86,22 +86,15 @@
 
 
 
-<meta name="description" content="C++ Primer上的一道练习题（中文第五版，p101，练习3.26）如下：在100页的二分搜索程序中，为什么用的是1mid = beg + (end - beg) / 2
-而非1mid = ( beg + end ) / 2
-关于二分搜索算法，主要代码如下：12345678910auto beg = text.begin(), end = text.end();auto mid = text.">
-<meta property="og:type" content="article">
-<meta property="og:title" content="关于使用C++中迭代器完成二分搜索的一个细节">
-<meta property="og:url" content="http://yoursite.com/2016/05/01/关于使用C-中迭代器完成二分搜索的一个细节/index.html">
+<meta name="description" content="The nineth art learner">
+<meta property="og:type" content="website">
+<meta property="og:title" content="朱笛">
+<meta property="og:url" content="http://yoursite.com/tags/java基础/index.html">
 <meta property="og:site_name" content="朱笛">
-<meta property="og:description" content="C++ Primer上的一道练习题（中文第五版，p101，练习3.26）如下：在100页的二分搜索程序中，为什么用的是1mid = beg + (end - beg) / 2
-而非1mid = ( beg + end ) / 2
-关于二分搜索算法，主要代码如下：12345678910auto beg = text.begin(), end = text.end();auto mid = text.">
-<meta property="og:updated_time" content="2016-05-01T08:51:28.721Z">
+<meta property="og:description" content="The nineth art learner">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于使用C++中迭代器完成二分搜索的一个细节">
-<meta name="twitter:description" content="C++ Primer上的一道练习题（中文第五版，p101，练习3.26）如下：在100页的二分搜索程序中，为什么用的是1mid = beg + (end - beg) / 2
-而非1mid = ( beg + end ) / 2
-关于二分搜索算法，主要代码如下：12345678910auto beg = text.begin(), end = text.end();auto mid = text.">
+<meta name="twitter:title" content="朱笛">
+<meta name="twitter:description" content="The nineth art learner">
 
 
 
@@ -122,10 +115,10 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/05/01/关于使用C-中迭代器完成二分搜索的一个细节/"/>
+  <link rel="canonical" href="http://yoursite.com/tags/java基础/"/>
 
 
-  <title> 关于使用C++中迭代器完成二分搜索的一个细节 | 朱笛 </title>
+  <title> 标签: java基础 | 朱笛 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -146,7 +139,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -234,152 +227,46 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                关于使用C++中迭代器完成二分搜索的一个细节
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-01T16:24:20+08:00" content="2016-05-01">
-              2016-05-01
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术·C/" itemprop="url" rel="index">
-                    <span itemprop="name">技术·C++</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>C++ Primer上的一道练习题（中文第五版，p101，练习3.26）如下：<br>在100页的二分搜索程序中，为什么用的是<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mid = beg + (end - beg) / <span class="number">2</span></span><br></pre></td></tr></table></figure></p>
-<p>而非<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mid = ( beg + end ) / <span class="number">2</span></span><br></pre></td></tr></table></figure></p>
-<p>关于二分搜索算法，主要代码如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> beg = text.begin(), end = text.end();</span><br><span class="line"><span class="keyword">auto</span> mid = text.begin() + (end - beg) / <span class="number">2</span>;</span><br><span class="line"><span class="keyword">while</span>(mid != end &amp;&amp; *mid != sought)&#123;</span><br><span class="line">	<span class="keyword">if</span>(sought &lt; *mid)</span><br><span class="line">		end = mid;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		beg = mid + <span class="number">1</span>;</span><br><span class="line">	mid = beg + (end - beg) / <span class="number">2</span>;</span><br><span class="line">	<span class="comment">//mid = (beg + end) / 2;	编译出错，因为迭代器不支持加法操作</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>因为刚刚在前面的练习就被迭代器溢出坑了，感觉挺容易出错的，就把这道题记录一下。<br>这里的两种写法在数学上是完全一样的，计算效率也没有区别，之所以采用第一种而不是第二种是因为<br>1.第一种写法可以规避掉迭代器溢出风险。如果beg+end的值大于了text.end()就会发生溢出，而end-beg得到的值不可能大于end，所以这种写法更加安全。<br>2.迭代器和指针中加法操作是没有意义的，也无法编译通过，所以第一种写法的通用性也更好，因此二分搜索算法中的这一求中值得操作一般写作第一种。</p>
-
-      
+  <div id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2 >
+        java基础
+        <small>标签</small>
+      </h2>
     </div>
 
-    <div>
+    
       
+
+  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
         
-
-      
-    </div>
-
-    <div>
-      
+            <a class="post-title-link" href="/2017/12/25/java学习笔记-一/" itemprop="url">
+              
+                <span itemprop="name">java学习笔记<一></span>
+              
+            </a>
         
+      </h1>
 
-      
-    </div>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-12-25T21:21:32+08:00"
+              content="2017-12-25" >
+          12-25
+        </time>
+      </div>
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/C/" rel="tag">#C++</a>
-          
-            <a href="/tags/vector/" rel="tag">#vector</a>
-          
-            <a href="/tags/C-Primer/" rel="tag">#C++ Primer</a>
-          
-        </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/04/08/传火者-一/" rel="next" title="传火者<一>">
-                <i class="fa fa-chevron-left"></i> 传火者<一>
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/26/Unity中控制物体移动方式总结/" rel="prev" title="Unity中控制物体移动方式总结">
-                Unity中控制物体移动方式总结 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
-      
-    </div>
+    
   </div>
+
+  
 
 
           </div>
@@ -387,10 +274,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
-
 
         </div>
         
@@ -410,17 +293,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://ww4.sinaimg.cn/small/005EelGgjw8f1g3keaylgj30e80e874n.jpg"
@@ -506,17 +380,6 @@
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <p class="post-toc-empty">此文章未包含目录</p>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -613,10 +476,6 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
-
-
 
   
 

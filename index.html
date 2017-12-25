@@ -251,6 +251,130 @@
             
               
                 
+                <a class="post-title-link" href="/2017/12/25/java学习笔记-一/" itemprop="url">
+                  java学习笔记<一>
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-12-25T21:21:32+08:00" content="2017-12-25">
+              2017-12-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术·java/" itemprop="url" rel="index">
+                    <span itemprop="name">技术·java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>考研完毕，感觉希望不大，准备春招吧。目标职位，java后台开发工程师。先复习java基础。从core java看起，一年都在准备考研，高数花了大量时间，java好久没用过了，很多点都忘了，计划3天把卷一先复习一下，看的时候记录如下。</p>
+<h1 id="零碎的知识点"><a href="#零碎的知识点" class="headerlink" title="零碎的知识点"></a>零碎的知识点</h1><p>Java 没有 无符号类型<br>Java 整型的存储需求<br>int    4字节    -2147483648 ~ 2147483647（大约20亿）<br>short  2字节    -32768 ~ 32767<br>long   8字节    -9223372036854775808 ~ 9223372036854775807（19位）<br>byte   1字节    -128~127<br>由于java的特性，所以不同数值类型占据的字节数量与平台无关。<br>最好不要在程序中使用char类型。</p>
+<h1 id="static、final、static-final-用法"><a href="#static、final、static-final-用法" class="headerlink" title="static、final、static final 用法"></a>static、final、static final 用法</h1><p>1.使用范围：类、方法、变量。、</p>
+<p>2.区别和联系：<br>2.1.static 含义：静态的，被 static 修饰的方法和属性只属于类不属于类的任何对象。<br>2.2.static 用法：<br>2.2.1.static 可以修饰【内部类】、方法和成员变量。<br>2.2.2.static【不可以修饰外部类】、【不可以修饰局部变量】（因为 static 本身就是定义为类级别的，所以局部级别的变量是不可以用 static 修饰的）。<br>2.3 final 含义：【只能赋值一次】的。<br>2.2.final 用法：<br>2.2.1.final 修饰属性，表示属性【只能赋值一次】，（1）基本类型：值不能被修改；（2）引用类型：引用不可以被修改该。<br>2.2.2.final 修饰方法，表示方法不可以重写，但是可以被子类访问（如果方法不是 private 类型话）。<br>2.2.2.final 修饰类，表示类不可以被继承。</p>
+<p>3.联合使用 static final<br>3.1.适用范围：<br>3.1.2.两者范围的交集，所以只能修饰：成员变量、方法、内部类。<br>3.2.含义：也是二者交集：<br>3.2.1.方法：属于类的方法且不可以被重写。<br>3.2.2.成员变量：属于类的变量且只能赋值一次。<br>3.2.3.内部类：属于外部类，且不能被继承</p>
+<p>java 数组length的实现 在jvm层面实现，详见<a href="https://www.zhihu.com/question/29649110" target="_blank" rel="external">https://www.zhihu.com/question/29649110</a></p>
+<h1 id="几个感觉很有用的函数"><a href="#几个感觉很有用的函数" class="headerlink" title="几个感觉很有用的函数"></a>几个感觉很有用的函数</h1><p>java.util.Arrays 1.2<br>static String toString(type[] a)<br>a 类型为int, long, short, char, byte, boolean, float, double类型的数组.</p>
+<p>static type copyOf(type[] a, int length)<br>static type copyOfRange(type[] a, int start, int end);</p>
+<p>a 类型为int, long, short, char, byte, boolean, float, double类型的数组.<br>static void sort(type[] a)<br>a 类型为int, long, short, char, byte, boolean, float, double类型的数组.</p>
+<p>static int binarySearch(type[] a, type v)<br>static int binarySearch(type[] a, int start, int end, type v)<br>a 类型为int, long, short, char, byte, boolean, float, double类型的数组.<br>查找成功返回下标，否则返回一个负数值r，-1-r是为保持a有序，v应该插入的位置.</p>
+<p>static void fill(type[] a, type v)<br>将数组所有元素值设为v<br>a 类型为int, long, short, char, byte, boolean, float, double类型的数组.</p>
+<p>static boolean equals(type[] a, type[] b)<br>两个数组大小相等，并且下表相应的对应元素都对应相等，返回true.</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/11/关于欧拉角和万向节锁/" itemprop="url">
                   数学上的欧拉角，万向节锁以及四元数
                 </a>
@@ -690,122 +814,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/01/关于使用C-中迭代器完成二分搜索的一个细节/" itemprop="url">
-                  关于使用C++中迭代器完成二分搜索的一个细节
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-01T16:24:20+08:00" content="2016-05-01">
-              2016-05-01
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术·C/" itemprop="url" rel="index">
-                    <span itemprop="name">技术·C++</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>C++ Primer上的一道练习题（中文第五版，p101，练习3.26）如下：<br>在100页的二分搜索程序中，为什么用的是<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mid = beg + (end - beg) / <span class="number">2</span></span><br></pre></td></tr></table></figure></p>
-<p>而非<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mid = ( beg + end ) / <span class="number">2</span></span><br></pre></td></tr></table></figure></p>
-<p>关于二分搜索算法，主要代码如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> beg = text.begin(), end = text.end();</span><br><span class="line"><span class="keyword">auto</span> mid = text.begin() + (end - beg) / <span class="number">2</span>;</span><br><span class="line"><span class="keyword">while</span>(mid != end &amp;&amp; *mid != sought)&#123;</span><br><span class="line">	<span class="keyword">if</span>(sought &lt; *mid)</span><br><span class="line">		end = mid;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		beg = mid + <span class="number">1</span>;</span><br><span class="line">	mid = beg + (end - beg) / <span class="number">2</span>;</span><br><span class="line">	<span class="comment">//mid = (beg + end) / 2;	编译出错，因为迭代器不支持加法操作</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>因为刚刚在前面的练习就被迭代器溢出坑了，感觉挺容易出错的，就把这道题记录一下。<br>这里的两种写法在数学上是完全一样的，计算效率也没有区别，之所以采用第一种而不是第二种是因为<br>1.第一种写法可以规避掉迭代器溢出风险。如果beg+end的值大于了text.end()就会发生溢出，而end-beg得到的值不可能大于end，所以这种写法更加安全。<br>2.迭代器和指针中加法操作是没有意义的，也无法编译通过，所以第一种写法的通用性也更好，因此二分搜索算法中的这一求中值得操作一般写作第一种。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -851,7 +859,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -859,7 +867,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -868,7 +876,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -940,8 +948,8 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
