@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-12-25T13:41:47.063Z</updated>
+  <updated>2017-12-26T16:34:44.201Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,14 +16,63 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>java学习笔记&lt;二&gt;</title>
+    <link href="http://yoursite.com/2017/12/27/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C/"/>
+    <id>http://yoursite.com/2017/12/27/java学习笔记-二/</id>
+    <published>2017-12-26T16:30:13.000Z</published>
+    <updated>2017-12-26T16:34:44.201Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;java中总是采用按值调用&quot;&gt;&lt;a href=&quot;#java中总是采用按值调用&quot; class=&quot;headerlink&quot; title=&quot;java中总是采用按值调用&quot;&gt;&lt;/a&gt;java中总是采用按值调用&lt;/h2&gt;&lt;p&gt;关于java中的调用方式，与C++不同&lt;br&gt;总结：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一个方法不能修改一个基本数据类型的参数&lt;/li&gt;
+&lt;li&gt;一个方法可以改变一个对象参数的状态&lt;/li&gt;
+&lt;li&gt;一个方法不能让对象参数引用一个新的对象&lt;/li&gt;
+&lt;/ul&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;示例：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;42&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;43&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;44&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;45&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;46&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;47&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;48&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;49&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;50&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;51&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;	public class Playground &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	public static void main(String[] args) throws FileNotFoundException &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		//测试1：方法不能修改一个基本数据类型的参数&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		System.out.println(&amp;quot;Testing tripleVlaue&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		double percent = 10;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		System.out.println(&amp;quot;Before: percent = &amp;quot; + percent);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		tripleValue(percent);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		System.out.println(&amp;quot;After: percent = &amp;quot; + percent);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		//测试2：一个方法可以改变一个对象参数的状态&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		System.out.println(&amp;quot;\nTesting tripleSalary:&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		Employee harry = new Employee(&amp;quot;Harry&amp;quot;, 50000);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		System.out.println(&amp;quot;Before: salary = &amp;quot; + harry.getSalary());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		tripleSalary(harry);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		System.out.println(&amp;quot;After: salary = &amp;quot; + harry.getSalary());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		//测试3：一个方法不能让对象参数引用一个新的对象&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		System.out.println(&amp;quot;\nTesting swap:&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		Employee a = new Employee(&amp;quot;Alice&amp;quot;, 70000);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		Employee b = new Employee(&amp;quot;Bob&amp;quot;, 60000);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		System.out.println(&amp;quot;Before a = &amp;quot; + a.getName());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		System.out.println(&amp;quot;Before b = &amp;quot; + b.getName());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		swap(a,b);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		System.out.println(&amp;quot;After a = &amp;quot; + a.getName());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		System.out.println(&amp;quot;After b = &amp;quot; + b.getName());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	public static void tripleValue(double x)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		x = 3 * x;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		System.out.println(&amp;quot;End of the method: x=&amp;quot; + x);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	public static void tripleSalary(Employee x)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		x.raiseSalary(200);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		System.out.println(&amp;quot;End of method: salary=&amp;quot; + x.getSalary());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	public static void swap(Employee x, Employee y)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		Employee temp = x;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		x = y;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		y = temp;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		System.out.println(&amp;quot;End of the method: x = &amp;quot; + x.getName());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		System.out.println(&amp;quot;End of the method: y = &amp;quot; + y.getName());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;类中初始化数据域的方法&quot;&gt;&lt;a href=&quot;#类中初始化数据域的方法&quot; class=&quot;headerlink&quot; title=&quot;类中初始化数据域的方法&quot;&gt;&lt;/a&gt;类中初始化数据域的方法&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;在构造器中设置值&lt;/li&gt;
+&lt;li&gt;在声明中赋值&lt;/li&gt;
+&lt;li&gt;初始化块和静态初始化块&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由于初始化数据域有多种途径，所以列出构造过程所有路径可能相当混乱。下面是调用构造器的具体处理步骤：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;所有数据域被初始化为默认值（0，false，或null）&lt;/li&gt;
+&lt;li&gt;按照在类声明中出现的次序，依次执行所有域初始化语句和初始化块&lt;/li&gt;
+&lt;li&gt;如果构造器第一行调用了第二个构造器，则执行第二个构造器主题。&lt;/li&gt;
+&lt;li&gt;执行这个构造器的主题。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;对于静态初始化块，我看到了一个问题，&lt;a href=&quot;https://www.zhihu.com/question/50374553?sort=created&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;JAVA 初始化块，为何可以在静态初始化块之前被执行？&lt;/a&gt;,暂时没看懂，之后看过虚拟机后再来看看，把这里补全。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;java中总是采用按值调用&quot;&gt;&lt;a href=&quot;#java中总是采用按值调用&quot; class=&quot;headerlink&quot; title=&quot;java中总是采用按值调用&quot;&gt;&lt;/a&gt;java中总是采用按值调用&lt;/h2&gt;&lt;p&gt;关于java中的调用方式，与C++不同&lt;br&gt;总结：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一个方法不能修改一个基本数据类型的参数&lt;/li&gt;
+&lt;li&gt;一个方法可以改变一个对象参数的状态&lt;/li&gt;
+&lt;li&gt;一个方法不能让对象参数引用一个新的对象&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="技术·java" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF%C2%B7java/"/>
+    
+    
+      <category term="java基础" scheme="http://yoursite.com/tags/java%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
     <title>java学习笔记&lt;一&gt;</title>
     <link href="http://yoursite.com/2017/12/25/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%B8%80/"/>
     <id>http://yoursite.com/2017/12/25/java学习笔记-一/</id>
     <published>2017-12-25T13:21:32.000Z</published>
-    <updated>2017-12-25T13:41:47.063Z</updated>
+    <updated>2017-12-26T16:31:44.122Z</updated>
     
     <content type="html">&lt;p&gt;考研完毕，感觉希望不大，准备春招吧。目标职位，java后台开发工程师。先复习java基础。从core java看起，一年都在准备考研，高数花了大量时间，java好久没用过了，很多点都忘了，计划3天把卷一先复习一下，看的时候记录如下。&lt;/p&gt;
-&lt;h1 id=&quot;零碎的知识点&quot;&gt;&lt;a href=&quot;#零碎的知识点&quot; class=&quot;headerlink&quot; title=&quot;零碎的知识点&quot;&gt;&lt;/a&gt;零碎的知识点&lt;/h1&gt;&lt;p&gt;Java 没有 无符号类型&lt;br&gt;Java 整型的存储需求&lt;br&gt;int    4字节    -2147483648 ~ 2147483647（大约20亿）&lt;br&gt;short  2字节    -32768 ~ 32767&lt;br&gt;long   8字节    -9223372036854775808 ~ 9223372036854775807（19位）&lt;br&gt;byte   1字节    -128~127&lt;br&gt;由于java的特性，所以不同数值类型占据的字节数量与平台无关。&lt;br&gt;最好不要在程序中使用char类型。&lt;/p&gt;
+&lt;h1 id=&quot;零碎的知识点&quot;&gt;&lt;a href=&quot;#零碎的知识点&quot; class=&quot;headerlink&quot; title=&quot;零碎的知识点&quot;&gt;&lt;/a&gt;零碎的知识点&lt;/h1&gt;&lt;p&gt;Java 没有 无符号类型&lt;br&gt;Java 整型的存储需求&lt;br&gt;int    4字节    -2147483648 ~ 2147483647（大约20亿）&lt;br&gt;short  2字节    -32768 ~ 32767&lt;br&gt;long   8字节    -9223372036854775808 ~ 9223372036854775807（19位）&lt;br&gt;byte   1字节    -128~127&lt;br&gt;由于java的特性，所以不同数值类型占据的字节数量与平台无关。&lt;br&gt;最好不要在程序中使用char类型。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;static、final、static-final-用法&quot;&gt;&lt;a href=&quot;#static、final、static-final-用法&quot; class=&quot;headerlink&quot; title=&quot;static、final、static final 用法&quot;&gt;&lt;/a&gt;static、final、static final 用法&lt;/h1&gt;&lt;p&gt;1.使用范围：类、方法、变量。、&lt;/p&gt;
 &lt;p&gt;2.区别和联系：&lt;br&gt;2.1.static 含义：静态的，被 static 修饰的方法和属性只属于类不属于类的任何对象。&lt;br&gt;2.2.static 用法：&lt;br&gt;2.2.1.static 可以修饰【内部类】、方法和成员变量。&lt;br&gt;2.2.2.static【不可以修饰外部类】、【不可以修饰局部变量】（因为 static 本身就是定义为类级别的，所以局部级别的变量是不可以用 static 修饰的）。&lt;br&gt;2.3 final 含义：【只能赋值一次】的。&lt;br&gt;2.2.final 用法：&lt;br&gt;2.2.1.final 修饰属性，表示属性【只能赋值一次】，（1）基本类型：值不能被修改；（2）引用类型：引用不可以被修改该。&lt;br&gt;2.2.2.final 修饰方法，表示方法不可以重写，但是可以被子类访问（如果方法不是 private 类型话）。&lt;br&gt;2.2.2.final 修饰类，表示类不可以被继承。&lt;/p&gt;
 &lt;p&gt;3.联合使用 static final&lt;br&gt;3.1.适用范围：&lt;br&gt;3.1.2.两者范围的交集，所以只能修饰：成员变量、方法、内部类。&lt;br&gt;3.2.含义：也是二者交集：&lt;br&gt;3.2.1.方法：属于类的方法且不可以被重写。&lt;br&gt;3.2.2.成员变量：属于类的变量且只能赋值一次。&lt;br&gt;3.2.3.内部类：属于外部类，且不能被继承&lt;/p&gt;
@@ -39,7 +88,7 @@
     <summary type="html">
     
       &lt;p&gt;考研完毕，感觉希望不大，准备春招吧。目标职位，java后台开发工程师。先复习java基础。从core java看起，一年都在准备考研，高数花了大量时间，java好久没用过了，很多点都忘了，计划3天把卷一先复习一下，看的时候记录如下。&lt;/p&gt;
-&lt;h1 id=&quot;零碎的知识点&quot;&gt;
+&lt;h1 id=&quot;零碎的知识点&quot;&gt;&lt;a href=&quot;#零碎的知识点&quot; class=&quot;headerlink&quot; title=&quot;零碎的知识点&quot;&gt;&lt;/a&gt;零碎的知识点&lt;/h1&gt;&lt;p&gt;Java 没有 无符号类型&lt;br&gt;Java 整型的存储需求&lt;br&gt;int    4字节    -2147483648 ~ 2147483647（大约20亿）&lt;br&gt;short  2字节    -32768 ~ 32767&lt;br&gt;long   8字节    -9223372036854775808 ~ 9223372036854775807（19位）&lt;br&gt;byte   1字节    -128~127&lt;br&gt;由于java的特性，所以不同数值类型占据的字节数量与平台无关。&lt;br&gt;最好不要在程序中使用char类型。&lt;br&gt;
     
     </summary>
     

@@ -251,6 +251,126 @@
             
               
                 
+                <a class="post-title-link" href="/2017/12/27/java学习笔记-二/" itemprop="url">
+                  java学习笔记<二>
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-12-27T00:30:13+08:00" content="2017-12-27">
+              2017-12-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术·java/" itemprop="url" rel="index">
+                    <span itemprop="name">技术·java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="java中总是采用按值调用"><a href="#java中总是采用按值调用" class="headerlink" title="java中总是采用按值调用"></a>java中总是采用按值调用</h2><p>关于java中的调用方式，与C++不同<br>总结：</p>
+<ul>
+<li>一个方法不能修改一个基本数据类型的参数</li>
+<li>一个方法可以改变一个对象参数的状态</li>
+<li>一个方法不能让对象参数引用一个新的对象</li>
+</ul>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/12/27/java学习笔记-二/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/12/25/java学习笔记-一/" itemprop="url">
                   java学习笔记<一>
                 </a>
@@ -313,21 +433,13 @@
 
       
         
-          
-            <p>考研完毕，感觉希望不大，准备春招吧。目标职位，java后台开发工程师。先复习java基础。从core java看起，一年都在准备考研，高数花了大量时间，java好久没用过了，很多点都忘了，计划3天把卷一先复习一下，看的时候记录如下。</p>
-<h1 id="零碎的知识点"><a href="#零碎的知识点" class="headerlink" title="零碎的知识点"></a>零碎的知识点</h1><p>Java 没有 无符号类型<br>Java 整型的存储需求<br>int    4字节    -2147483648 ~ 2147483647（大约20亿）<br>short  2字节    -32768 ~ 32767<br>long   8字节    -9223372036854775808 ~ 9223372036854775807（19位）<br>byte   1字节    -128~127<br>由于java的特性，所以不同数值类型占据的字节数量与平台无关。<br>最好不要在程序中使用char类型。</p>
-<h1 id="static、final、static-final-用法"><a href="#static、final、static-final-用法" class="headerlink" title="static、final、static final 用法"></a>static、final、static final 用法</h1><p>1.使用范围：类、方法、变量。、</p>
-<p>2.区别和联系：<br>2.1.static 含义：静态的，被 static 修饰的方法和属性只属于类不属于类的任何对象。<br>2.2.static 用法：<br>2.2.1.static 可以修饰【内部类】、方法和成员变量。<br>2.2.2.static【不可以修饰外部类】、【不可以修饰局部变量】（因为 static 本身就是定义为类级别的，所以局部级别的变量是不可以用 static 修饰的）。<br>2.3 final 含义：【只能赋值一次】的。<br>2.2.final 用法：<br>2.2.1.final 修饰属性，表示属性【只能赋值一次】，（1）基本类型：值不能被修改；（2）引用类型：引用不可以被修改该。<br>2.2.2.final 修饰方法，表示方法不可以重写，但是可以被子类访问（如果方法不是 private 类型话）。<br>2.2.2.final 修饰类，表示类不可以被继承。</p>
-<p>3.联合使用 static final<br>3.1.适用范围：<br>3.1.2.两者范围的交集，所以只能修饰：成员变量、方法、内部类。<br>3.2.含义：也是二者交集：<br>3.2.1.方法：属于类的方法且不可以被重写。<br>3.2.2.成员变量：属于类的变量且只能赋值一次。<br>3.2.3.内部类：属于外部类，且不能被继承</p>
-<p>java 数组length的实现 在jvm层面实现，详见<a href="https://www.zhihu.com/question/29649110" target="_blank" rel="external">https://www.zhihu.com/question/29649110</a></p>
-<h1 id="几个感觉很有用的函数"><a href="#几个感觉很有用的函数" class="headerlink" title="几个感觉很有用的函数"></a>几个感觉很有用的函数</h1><p>java.util.Arrays 1.2<br>static String toString(type[] a)<br>a 类型为int, long, short, char, byte, boolean, float, double类型的数组.</p>
-<p>static type copyOf(type[] a, int length)<br>static type copyOfRange(type[] a, int start, int end);</p>
-<p>a 类型为int, long, short, char, byte, boolean, float, double类型的数组.<br>static void sort(type[] a)<br>a 类型为int, long, short, char, byte, boolean, float, double类型的数组.</p>
-<p>static int binarySearch(type[] a, type v)<br>static int binarySearch(type[] a, int start, int end, type v)<br>a 类型为int, long, short, char, byte, boolean, float, double类型的数组.<br>查找成功返回下标，否则返回一个负数值r，-1-r是为保持a有序，v应该插入的位置.</p>
-<p>static void fill(type[] a, type v)<br>将数组所有元素值设为v<br>a 类型为int, long, short, char, byte, boolean, float, double类型的数组.</p>
-<p>static boolean equals(type[] a, type[] b)<br>两个数组大小相等，并且下表相应的对应元素都对应相等，返回true.</p>
-
-          
+          <p>考研完毕，感觉希望不大，准备春招吧。目标职位，java后台开发工程师。先复习java基础。从core java看起，一年都在准备考研，高数花了大量时间，java好久没用过了，很多点都忘了，计划3天把卷一先复习一下，看的时候记录如下。</p>
+<h1 id="零碎的知识点"><a href="#零碎的知识点" class="headerlink" title="零碎的知识点"></a>零碎的知识点</h1><p>Java 没有 无符号类型<br>Java 整型的存储需求<br>int    4字节    -2147483648 ~ 2147483647（大约20亿）<br>short  2字节    -32768 ~ 32767<br>long   8字节    -9223372036854775808 ~ 9223372036854775807（19位）<br>byte   1字节    -128~127<br>由于java的特性，所以不同数值类型占据的字节数量与平台无关。<br>最好不要在程序中使用char类型。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/12/25/java学习笔记-一/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -699,121 +811,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/26/Unity中控制物体移动方式总结/" itemprop="url">
-                  Unity中控制物体移动方式总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-26T20:55:33+08:00" content="2016-09-26">
-              2016-09-26
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术·游戏开发/" itemprop="url" rel="index">
-                    <span itemprop="name">技术·游戏开发</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Unity中使物体发生位移的方法有很多，现在先把我接触到的几种常用方法总结一下，以便日后游戏开发的过程中能够选择合适的方法。我将这些方法主要分为两类，一类通过直接改变gameobject.transform来实现，一类通过Unitu的物理引擎模拟物体的受力过程来实现。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/09/26/Unity中控制物体移动方式总结/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -859,7 +856,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

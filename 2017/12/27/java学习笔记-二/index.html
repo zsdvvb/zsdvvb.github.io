@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="计算机图形学," />
+  <meta name="keywords" content="java基础," />
 
 
 
@@ -86,16 +86,28 @@
 
 
 
-<meta name="description" content="今天学习的时又碰到了万向节锁这个东西，上次见到它的时候看半天都没明白是个什么东西，今天算是搞懂了，记录下。">
+<meta name="description" content="java中总是采用按值调用关于java中的调用方式，与C++不同总结：
+
+一个方法不能修改一个基本数据类型的参数
+一个方法可以改变一个对象参数的状态
+一个方法不能让对象参数引用一个新的对象">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数学上的欧拉角，万向节锁以及四元数">
-<meta property="og:url" content="http://yoursite.com/2016/11/11/关于欧拉角和万向节锁/index.html">
+<meta property="og:title" content="java学习笔记<二>">
+<meta property="og:url" content="http://yoursite.com/2017/12/27/java学习笔记-二/index.html">
 <meta property="og:site_name" content="朱笛">
-<meta property="og:description" content="今天学习的时又碰到了万向节锁这个东西，上次见到它的时候看半天都没明白是个什么东西，今天算是搞懂了，记录下。">
-<meta property="og:updated_time" content="2016-11-11T09:05:04.077Z">
+<meta property="og:description" content="java中总是采用按值调用关于java中的调用方式，与C++不同总结：
+
+一个方法不能修改一个基本数据类型的参数
+一个方法可以改变一个对象参数的状态
+一个方法不能让对象参数引用一个新的对象">
+<meta property="og:updated_time" content="2017-12-26T16:34:44.201Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数学上的欧拉角，万向节锁以及四元数">
-<meta name="twitter:description" content="今天学习的时又碰到了万向节锁这个东西，上次见到它的时候看半天都没明白是个什么东西，今天算是搞懂了，记录下。">
+<meta name="twitter:title" content="java学习笔记<二>">
+<meta name="twitter:description" content="java中总是采用按值调用关于java中的调用方式，与C++不同总结：
+
+一个方法不能修改一个基本数据类型的参数
+一个方法可以改变一个对象参数的状态
+一个方法不能让对象参数引用一个新的对象">
 
 
 
@@ -116,10 +128,10 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/11/11/关于欧拉角和万向节锁/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/12/27/java学习笔记-二/"/>
 
 
-  <title> 数学上的欧拉角，万向节锁以及四元数 | 朱笛 </title>
+  <title> java学习笔记<二> | 朱笛 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -249,7 +261,7 @@
             
             
               
-                数学上的欧拉角，万向节锁以及四元数
+                java学习笔记<二>
               
             
           </h1>
@@ -261,8 +273,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-11T15:47:25+08:00" content="2016-11-11">
-              2016-11-11
+            <time itemprop="dateCreated" datetime="2017-12-27T00:30:13+08:00" content="2017-12-27">
+              2017-12-27
             </time>
           </span>
 
@@ -275,8 +287,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术·计算机图形学/" itemprop="url" rel="index">
-                    <span itemprop="name">技术·计算机图形学</span>
+                  <a href="/categories/技术·java/" itemprop="url" rel="index">
+                    <span itemprop="name">技术·java</span>
                   </a>
                 </span>
 
@@ -308,18 +320,29 @@
       
 
       
-        <p>今天学习的时又碰到了万向节锁这个东西，上次见到它的时候看半天都没明白是个什么东西，今天算是搞懂了，记录下。<a id="more"></a></p>
-<h1 id="什么是欧拉角-Eular-angle"><a href="#什么是欧拉角-Eular-angle" class="headerlink" title="什么是欧拉角(Eular angle)"></a>什么是欧拉角(Eular angle)</h1><p>欧拉角主要被用来描述物体在空间中的旋转，关于它的具体定义，<a href="https://zh.wikipedia.org/zh/%E6%AC%A7%E6%8B%89%E8%A7%92" target="_blank" rel="external">wikipedia</a>中是这样写的：</p>
-<blockquote>
-<p>莱昂哈德·欧拉用欧拉角来描述刚体在三维欧几里得空间的取向。对于任何参考系，一个刚体的取向，是依照顺序，从这参考系，做三个欧拉角的旋转而设定的。所以，刚体的取向可以用三个基本旋转矩阵来决定。换句话说，任何关于刚体旋转的旋转矩阵是由三个基本旋转矩阵复合而成的。</p>
-</blockquote>
-<p>欧拉角有两种：</p>
+        <h2 id="java中总是采用按值调用"><a href="#java中总是采用按值调用" class="headerlink" title="java中总是采用按值调用"></a>java中总是采用按值调用</h2><p>关于java中的调用方式，与C++不同<br>总结：</p>
 <ul>
-<li>静态：即绕世界坐标系三个轴的旋转，由于物体旋转过程中坐标轴保持静止，所以称为静态。</li>
-<li>动态：即绕物体坐标系三个轴的旋转，由于物体旋转过程中坐标轴随着物体做相同的转动，所以称为动态。</li>
+<li>一个方法不能修改一个基本数据类型的参数</li>
+<li>一个方法可以改变一个对象参数的状态</li>
+<li>一个方法不能让对象参数引用一个新的对象</li>
 </ul>
-<h1 id="万向节锁（Gimbal-lock）的产生与解决方案"><a href="#万向节锁（Gimbal-lock）的产生与解决方案" class="headerlink" title="万向节锁（Gimbal lock）的产生与解决方案"></a>万向节锁（Gimbal lock）的产生与解决方案</h1><p>万向节锁是使用动态万象节锁会出现的现象，静态欧拉角不会出现万向锁的问题。<br>由欧拉角的定义我们可以发现，对于一个向量，任何一个角度的旋转，我们都可以通过欧拉角实现，但是在我们定义的坐标系下，假设由内到外的顺序是z-x-y轴，这样当我们旋转z轴与y轴平行时，万向节锁出现，我们会发现此时欧拉角缺失了一个自由度，只靠语言很难清晰的描述清楚这个情况，这个<a href="http://v.youku.com/v_show/id_XNzkyOTIyMTI=.html" target="_blank" rel="external">视频</a>讲解的很清楚。要彻底解决万像锁的问题，需要用到四元数。</p>
-<h1 id="四元数（Quaternion）"><a href="#四元数（Quaternion）" class="headerlink" title="四元数（Quaternion）"></a>四元数（Quaternion）</h1>
+<a id="more"></a>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">	public class Playground &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws FileNotFoundException &#123;</span><br><span class="line">		</span><br><span class="line">		//测试1：方法不能修改一个基本数据类型的参数</span><br><span class="line">		System.out.println(&quot;Testing tripleVlaue&quot;);</span><br><span class="line">		double percent = 10;</span><br><span class="line">		System.out.println(&quot;Before: percent = &quot; + percent);</span><br><span class="line">		tripleValue(percent);</span><br><span class="line">		System.out.println(&quot;After: percent = &quot; + percent);</span><br><span class="line">	</span><br><span class="line">		//测试2：一个方法可以改变一个对象参数的状态</span><br><span class="line">		System.out.println(&quot;\nTesting tripleSalary:&quot;);</span><br><span class="line">		Employee harry = new Employee(&quot;Harry&quot;, 50000);</span><br><span class="line">		System.out.println(&quot;Before: salary = &quot; + harry.getSalary());</span><br><span class="line">		tripleSalary(harry);</span><br><span class="line">		System.out.println(&quot;After: salary = &quot; + harry.getSalary());</span><br><span class="line">		</span><br><span class="line">		//测试3：一个方法不能让对象参数引用一个新的对象</span><br><span class="line">		System.out.println(&quot;\nTesting swap:&quot;);</span><br><span class="line">		Employee a = new Employee(&quot;Alice&quot;, 70000);</span><br><span class="line">		Employee b = new Employee(&quot;Bob&quot;, 60000);</span><br><span class="line">		System.out.println(&quot;Before a = &quot; + a.getName());</span><br><span class="line">		System.out.println(&quot;Before b = &quot; + b.getName());</span><br><span class="line">		swap(a,b);</span><br><span class="line">		System.out.println(&quot;After a = &quot; + a.getName());</span><br><span class="line">		System.out.println(&quot;After b = &quot; + b.getName());</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">	public static void tripleValue(double x)&#123;</span><br><span class="line">		x = 3 * x;</span><br><span class="line">		System.out.println(&quot;End of the method: x=&quot; + x);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static void tripleSalary(Employee x)&#123;</span><br><span class="line">		x.raiseSalary(200);</span><br><span class="line">		System.out.println(&quot;End of method: salary=&quot; + x.getSalary());</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static void swap(Employee x, Employee y)&#123;</span><br><span class="line">		</span><br><span class="line">		Employee temp = x;</span><br><span class="line">		x = y;</span><br><span class="line">		y = temp;</span><br><span class="line">		System.out.println(&quot;End of the method: x = &quot; + x.getName());</span><br><span class="line">		System.out.println(&quot;End of the method: y = &quot; + y.getName());</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="类中初始化数据域的方法"><a href="#类中初始化数据域的方法" class="headerlink" title="类中初始化数据域的方法"></a>类中初始化数据域的方法</h2><ul>
+<li>在构造器中设置值</li>
+<li>在声明中赋值</li>
+<li>初始化块和静态初始化块</li>
+</ul>
+<p>由于初始化数据域有多种途径，所以列出构造过程所有路径可能相当混乱。下面是调用构造器的具体处理步骤：</p>
+<ol>
+<li>所有数据域被初始化为默认值（0，false，或null）</li>
+<li>按照在类声明中出现的次序，依次执行所有域初始化语句和初始化块</li>
+<li>如果构造器第一行调用了第二个构造器，则执行第二个构造器主题。</li>
+<li>执行这个构造器的主题。</li>
+</ol>
+<p>对于静态初始化块，我看到了一个问题，<a href="https://www.zhihu.com/question/50374553?sort=created" target="_blank" rel="external">JAVA 初始化块，为何可以在静态初始化块之前被执行？</a>,暂时没看懂，之后看过虚拟机后再来看看，把这里补全。</p>
+
       
     </div>
 
@@ -341,7 +364,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/计算机图形学/" rel="tag">#计算机图形学</a>
+            <a href="/tags/java基础/" rel="tag">#java基础</a>
           
         </div>
       
@@ -350,17 +373,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/06/OPENGL学习笔记-二/" rel="next" title="OPENGL学习笔记<二>">
-                <i class="fa fa-chevron-left"></i> OPENGL学习笔记<二>
+              <a href="/2017/12/25/java学习笔记-一/" rel="next" title="java学习笔记<一>">
+                <i class="fa fa-chevron-left"></i> java学习笔记<一>
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/25/java学习笔记-一/" rel="prev" title="java学习笔记<一>">
-                java学习笔记<一> <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -510,7 +529,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是欧拉角-Eular-angle"><span class="nav-number">1.</span> <span class="nav-text">什么是欧拉角(Eular angle)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#万向节锁（Gimbal-lock）的产生与解决方案"><span class="nav-number">2.</span> <span class="nav-text">万向节锁（Gimbal lock）的产生与解决方案</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四元数（Quaternion）"><span class="nav-number">3.</span> <span class="nav-text">四元数（Quaternion）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#java中总是采用按值调用"><span class="nav-number">1.</span> <span class="nav-text">java中总是采用按值调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类中初始化数据域的方法"><span class="nav-number">2.</span> <span class="nav-text">类中初始化数据域的方法</span></a></li></ol></div>
             
           </div>
         </section>

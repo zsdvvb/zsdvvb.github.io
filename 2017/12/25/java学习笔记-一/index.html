@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="朱笛">
 <meta property="og:description" content="考研完毕，感觉希望不大，准备春招吧。目标职位，java后台开发工程师。先复习java基础。从core java看起，一年都在准备考研，高数花了大量时间，java好久没用过了，很多点都忘了，计划3天把卷一先复习一下，看的时候记录如下。
 零碎的知识点Java 没有 无符号类型Java 整型的存储需求int    4字节    -2147483648 ~ 2147483647（大约20亿）short">
-<meta property="og:updated_time" content="2017-12-25T13:41:47.063Z">
+<meta property="og:updated_time" content="2017-12-26T16:31:44.122Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java学习笔记<一>">
 <meta name="twitter:description" content="考研完毕，感觉希望不大，准备春招吧。目标职位，java后台开发工程师。先复习java基础。从core java看起，一年都在准备考研，高数花了大量时间，java好久没用过了，很多点都忘了，计划3天把卷一先复习一下，看的时候记录如下。
@@ -312,7 +312,7 @@
 
       
         <p>考研完毕，感觉希望不大，准备春招吧。目标职位，java后台开发工程师。先复习java基础。从core java看起，一年都在准备考研，高数花了大量时间，java好久没用过了，很多点都忘了，计划3天把卷一先复习一下，看的时候记录如下。</p>
-<h1 id="零碎的知识点"><a href="#零碎的知识点" class="headerlink" title="零碎的知识点"></a>零碎的知识点</h1><p>Java 没有 无符号类型<br>Java 整型的存储需求<br>int    4字节    -2147483648 ~ 2147483647（大约20亿）<br>short  2字节    -32768 ~ 32767<br>long   8字节    -9223372036854775808 ~ 9223372036854775807（19位）<br>byte   1字节    -128~127<br>由于java的特性，所以不同数值类型占据的字节数量与平台无关。<br>最好不要在程序中使用char类型。</p>
+<h1 id="零碎的知识点"><a href="#零碎的知识点" class="headerlink" title="零碎的知识点"></a>零碎的知识点</h1><p>Java 没有 无符号类型<br>Java 整型的存储需求<br>int    4字节    -2147483648 ~ 2147483647（大约20亿）<br>short  2字节    -32768 ~ 32767<br>long   8字节    -9223372036854775808 ~ 9223372036854775807（19位）<br>byte   1字节    -128~127<br>由于java的特性，所以不同数值类型占据的字节数量与平台无关。<br>最好不要在程序中使用char类型。<br><a id="more"></a></p>
 <h1 id="static、final、static-final-用法"><a href="#static、final、static-final-用法" class="headerlink" title="static、final、static final 用法"></a>static、final、static final 用法</h1><p>1.使用范围：类、方法、变量。、</p>
 <p>2.区别和联系：<br>2.1.static 含义：静态的，被 static 修饰的方法和属性只属于类不属于类的任何对象。<br>2.2.static 用法：<br>2.2.1.static 可以修饰【内部类】、方法和成员变量。<br>2.2.2.static【不可以修饰外部类】、【不可以修饰局部变量】（因为 static 本身就是定义为类级别的，所以局部级别的变量是不可以用 static 修饰的）。<br>2.3 final 含义：【只能赋值一次】的。<br>2.2.final 用法：<br>2.2.1.final 修饰属性，表示属性【只能赋值一次】，（1）基本类型：值不能被修改；（2）引用类型：引用不可以被修改该。<br>2.2.2.final 修饰方法，表示方法不可以重写，但是可以被子类访问（如果方法不是 private 类型话）。<br>2.2.2.final 修饰类，表示类不可以被继承。</p>
 <p>3.联合使用 static final<br>3.1.适用范围：<br>3.1.2.两者范围的交集，所以只能修饰：成员变量、方法、内部类。<br>3.2.含义：也是二者交集：<br>3.2.1.方法：属于类的方法且不可以被重写。<br>3.2.2.成员变量：属于类的变量且只能赋值一次。<br>3.2.3.内部类：属于外部类，且不能被继承</p>
@@ -361,6 +361,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/27/java学习笔记-二/" rel="prev" title="java学习笔记<二>">
+                java学习笔记<二> <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -428,7 +432,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
